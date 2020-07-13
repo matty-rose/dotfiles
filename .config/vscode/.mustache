@@ -1,0 +1,22 @@
+{{summaryPlaceholder}}
+
+{{#parametersExist}}
+Parameters
+----------
+{{#args}}
+{{var}} : {{descriptionPlaceholder}}
+{{/args}}
+{{#kwargs}}
+{{var}} (optional) : {{descriptionPlaceholder}}. Defaults to {{&default}}
+{{/kwargs}}
+{{/parametersExist}}
+
+{{#returnsExist}}
+Return
+------
+{{#returns}}
+{{var}} : {{descriptionPlaceholder}}
+{{/returns}}
+
+{{/returnsExist}}
+
