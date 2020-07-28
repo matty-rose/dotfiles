@@ -33,3 +33,6 @@ alias config="/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/matt/google-cloud-sdk/path.fish.inc' ]; . '/Users/matt/google-cloud-sdk/path.fish.inc'; end
+
+#kubectl krew
+set -gx PATH $PATH $HOME/.krew/bin
