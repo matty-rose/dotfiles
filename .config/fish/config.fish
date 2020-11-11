@@ -30,6 +30,7 @@ alias gch="git checkout"
 alias gchb="git checkout -b"
 alias gcm="git commit -m"
 alias config="/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME"
+alias gcp="git cherry-pick"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/matt/google-cloud-sdk/path.fish.inc' ]; . '/Users/matt/google-cloud-sdk/path.fish.inc'; end
