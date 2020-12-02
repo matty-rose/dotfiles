@@ -1,14 +1,23 @@
-" Plugins
+" ====================
+"       Plugins
+" ====================
 call plug#begin('~/.vim/plugged')
+
+" VIM enhancements
+Plug 'justinmk/vim-sneak'
 
 " Syntax/code specific
 Plug 'sheerun/vim-polyglot'
 Plug 'alx741/vim-stylishask'
 
-" UI and Statusline
-Plug 'lifepillar/vim-solarized8'
+" Statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" Colors
+Plug 'chriskempson/base16-vim'
+" Plug 'lifepillar/vim-solarized8'
+" Plug 'nightsense/carbonized'
 
 " Editing
 Plug 'tpope/vim-surround'
@@ -17,7 +26,11 @@ Plug 'tpope/vim-commentary'
 " Git Management
 Plug 'tpope/vim-fugitive'
 
+" Syntax Stuff
+Plug 'stephpy/vim-yaml'
+
 call plug#end()
+
 
 " Show command
 set showcmd
@@ -36,9 +49,8 @@ set wildmenu
 
 " Colour Scheme
 syntax enable
-set t_Co=256
-set background=dark
-colorscheme solarized8
+set termguicolors
+colorscheme base16-monokai
 let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts = 1
 
