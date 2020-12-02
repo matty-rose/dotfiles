@@ -43,6 +43,10 @@ set cursorline
 " Highlight matching brace
 set showmatch
 
+" Sane splitting
+set splitright
+set splitbelow
+
 " Fuzzy File Finding
 set path+=**
 set wildmenu
