@@ -37,3 +37,8 @@ if [ -f '/Users/matt/google-cloud-sdk/path.fish.inc' ]; . '/Users/matt/google-cl
 
 #kubectl krew
 set -gx PATH $PATH $HOME/.krew/bin
+
+set -gx PATH $PATH $HOME/go/bin
+
+# Set kubeeditor
+set -gx KUBE_EDITOR /usr/local/bin/nvim
