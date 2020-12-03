@@ -6,6 +6,7 @@ abbr -a gch "git checkout"
 abbr -a gchb "git checkout -b"
 abbr -a gcm "git commit -m"
 abbr -a gcp "git cherry-pick"
+abbr -a gpo "git pull origin"
 
 # Exa
 if command -v exa > /dev/null
