@@ -59,6 +59,9 @@ set -gx PATH $PATH $HOME/go/bin
 # Set kubeeditor
 set -gx KUBE_EDITOR /usr/local/bin/nvim
 
+# No python bytecode
+set -gx PYTHONDONTWRITEBYTECODE 1
+
 function fish_greeting
 	echo
 	echo -e (uname -n | awk '{print " \\\\e[1mUser: \\\\e[0;32m"$0"\\\\e[0m"}')
