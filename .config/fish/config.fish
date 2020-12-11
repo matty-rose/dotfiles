@@ -7,6 +7,8 @@ abbr -a gchb "git checkout -b"
 abbr -a gcm "git commit -m"
 abbr -a gcp "git cherry-pick"
 abbr -a gpo "git pull origin"
+abbr -a grc "git rebase --continue"
+abbr -a grs "git rebase --skip"
 
 # Exa
 if command -v exa > /dev/null

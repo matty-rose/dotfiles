@@ -36,8 +36,6 @@
     "jupyter.sendSelectionToInteractiveWindow": false,
     "jupyter.askForKernelRestart": false,
     "launch": {
-
-
         "configurations": [],
         "compounds": []
     },
