@@ -9,6 +9,7 @@ abbr -a gcp "git cherry-pick"
 abbr -a gpo "git pull origin"
 abbr -a grc "git rebase --continue"
 abbr -a grs "git rebase --skip"
+abbr -a pa "source (poetry env info --path)/bin/activate.fish"
 
 # Exa
 if command -v exa > /dev/null
