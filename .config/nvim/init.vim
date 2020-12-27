@@ -1,3 +1,5 @@
+let mapleader = "\<Space>"
+
 " ====================
 "       Plugins
 " ====================
@@ -22,6 +24,10 @@ Plug 'chriskempson/base16-vim'
 " Editing
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'andymass/vim-matchup'
+
+" Semantic Language Support
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Git Management
 Plug 'tpope/vim-fugitive'
@@ -68,6 +74,40 @@ set shiftwidth=4
 set expandtab
 set copyindent
 
+" Permanent Undo
+set undodir=~/.vimdid
+set undofile
+
+" =====================================
+"         Keyboard Shortcuts
+" =====================================
+
 " Run python code
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
+
+" Very magic modifier on search by default
+nnoremap ? ?\v
+nnoremap / /\v
+
+" GoTo code nav
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" <leader><leader> toggles between most recently used buffers
+nnoremap <leader><leader> <c-^>
+
+
+" ===============================
+"         Autocommands
+" ===============================
+
+" Jump to last edit position on file open
+if has("autocmd")
+    au BufReadPost * if expand('%:p') !~# '\m/\.git/' && line("'\"") > 1 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" Help Filetype detection
+autocmd BufRead *.md set filetype=markdown
