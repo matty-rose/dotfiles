@@ -1,5 +1,8 @@
 let mapleader = "\<Space>"
 
+" Ale stuff - must happen before plugins
+let g:ale_disable_lsp = 1
+
 " ====================
 "       Plugins
 " ====================
@@ -28,6 +31,7 @@ Plug 'andymass/vim-matchup'
 
 " Semantic Language Support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
 
 " Git Management
 Plug 'tpope/vim-fugitive'

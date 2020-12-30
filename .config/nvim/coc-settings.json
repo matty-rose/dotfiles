@@ -1,3 +1,5 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["go"]
+    "coc.preferences.formatOnSaveFiletypes": ["go"],
+    "diagnostic.displayByAle": true
 }
+
