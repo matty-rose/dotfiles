@@ -83,6 +83,12 @@ set copyindent
 set undodir=~/.vimdid
 set undofile
 
+" Ale
+let g:ale_linters = {'javascript': ['prettier', 'eslint'], 'python': ['flake8'], 'go': ['golint']}
+let g:ale_linters_explicit = 1
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+
 " =====================================
 "         Keyboard Shortcuts
 " =====================================
