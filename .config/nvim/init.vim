@@ -70,6 +70,7 @@ let g:airline_powerline_fonts = 1
 
 " Buffer status line
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 
 " Spaces and tabs
 set tabstop=4
