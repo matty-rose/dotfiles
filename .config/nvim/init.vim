@@ -99,10 +99,12 @@ nmap <silent> gr <Plug>(coc-references)
 " <leader><leader> toggles between most recently used buffers
 nnoremap <leader><leader> <c-^>
 
-
 " ===============================
 "         Autocommands
 " ===============================
+
+" Add missing go imports on save
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Jump to last edit position on file open
 if has("autocmd")
