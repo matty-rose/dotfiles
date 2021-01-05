@@ -63,6 +63,9 @@ set -gx PATH $PATH $HOME/go/bin
 # Set kubeeditor
 set -gx KUBE_EDITOR /usr/local/bin/nvim
 
+# Istioctl
+set -gx PATH $PATH $HOME/.istioctl/bin
+
 # No python bytecode
 set -gx PYTHONDONTWRITEBYTECODE 1
 
