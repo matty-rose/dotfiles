@@ -39,6 +39,11 @@ Plug 'tpope/vim-fugitive'
 " Syntax Stuff
 Plug 'stephpy/vim-yaml'
 
+" Fuzzy Finding
+Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 
@@ -89,9 +94,18 @@ let g:ale_linters_explicit = 1
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 
+" Better message display
+set cmdheight=2
+
+" Update time
+set updatetime=300
+
 " =====================================
 "         Keyboard Shortcuts
 " =====================================
+
+" Quick save
+nmap <leader>w :w<CR>
 
 " Run python code
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
@@ -109,6 +123,10 @@ nmap <silent> gr <Plug>(coc-references)
 
 " <leader><leader> toggles between most recently used buffers
 nnoremap <leader><leader> <c-^>
+
+" Open
+map <C-p> :Files<CR>
+nmap <leader>; :Buffers<CR>
 
 " ===============================
 "         Autocommands
