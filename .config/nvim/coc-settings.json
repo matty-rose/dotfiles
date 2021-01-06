@@ -1,5 +1,4 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["go"],
     "diagnostic.displayByAle": true
 }
 
