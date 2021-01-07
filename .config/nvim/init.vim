@@ -96,6 +96,23 @@ let g:ale_linters_explicit = 1
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 
+" Fzf options
+let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
 " Better message display
 set cmdheight=2
 
@@ -135,6 +152,9 @@ nnoremap <leader><leader> <c-^>
 " Open
 map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
+
+" Use <c-space> to trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
 
 " ===============================
 "         Autocommands
