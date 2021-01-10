@@ -25,6 +25,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
+Plug 'terryma/vim-expand-region'
 
 " Semantic Language Support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -226,6 +227,10 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " replace up to next _
 nnoremap <leader>m ct_
+
+" vim expand region selecting
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " ===============================
 "         Autocommands
