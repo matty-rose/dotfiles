@@ -96,6 +96,9 @@ let g:ale_linters_explicit = 1
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 
+" Ale python
+let g:ale_python_flake8_options = "--max-line-length 88"
+
 " Fzf options
 let g:fzf_layout = { 'down': '~20%' }
 let g:fzf_colors =
@@ -118,6 +121,9 @@ set cmdheight=2
 
 " Update time
 set updatetime=300
+
+" Code column length
+set colorcolumn=88
 
 " =====================================
 "         Keyboard Shortcuts
