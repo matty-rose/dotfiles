@@ -27,6 +27,9 @@ Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
 Plug 'terryma/vim-expand-region'
 
+" For Git blame
+Plug 'tpope/vim-fugitive'
+
 " Semantic Language Support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
@@ -38,7 +41,9 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-
+" ========================================
+"             Configuration
+" ========================================
 " Show command
 set showcmd
 
@@ -231,6 +236,11 @@ nnoremap <leader>m ct_
 " vim expand region selecting
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+" Jump to end of pasted text
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
 
 " ===============================
 "         Autocommands
