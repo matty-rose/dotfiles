@@ -145,6 +145,9 @@ set updatetime=300
 " Code column length
 set colorcolumn=88
 
+" Mute bell
+set vb t_vb=
+
 " =====================================
 "         Keyboard Shortcuts
 " =====================================
