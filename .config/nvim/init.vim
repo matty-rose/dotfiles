@@ -9,12 +9,10 @@ let g:ale_disable_lsp = 1
 " ====================
 call plug#begin('~/.vim/plugged')
 
-" VIM enhancements
-Plug 'justinmk/vim-sneak'
-
 " Syntax/code specific
 Plug 'sheerun/vim-polyglot'
 Plug 'alx741/vim-stylishask'
+Plug 'stephpy/vim-yaml'
 
 " Statusline
 Plug 'vim-airline/vim-airline'
@@ -22,8 +20,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Colors
 Plug 'chriskempson/base16-vim'
-" Plug 'lifepillar/vim-solarized8'
-" Plug 'nightsense/carbonized'
 
 " Editing
 Plug 'tpope/vim-surround'
@@ -33,12 +29,6 @@ Plug 'andymass/vim-matchup'
 " Semantic Language Support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
-
-" Git Management
-Plug 'tpope/vim-fugitive'
-
-" Syntax Stuff
-Plug 'stephpy/vim-yaml'
 
 " Fuzzy Finding
 Plug 'airblade/vim-rooter'

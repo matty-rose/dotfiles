@@ -46,6 +46,9 @@ eval /Users/matt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 
 set PATH /Users/matt/anaconda3/condabin:/Users/matt/anaconda3/bin $PATH
 
+# Stop brew autoupdating every install
+set -gx HOMEBREW_NO_AUTO_UPDATE 1
+
 # Double virtual env in prompt
 set -gx VIRTUAL_ENV_DISABLE_PROMPT true
 
