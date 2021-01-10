@@ -39,6 +39,9 @@ Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Fancy Startup
+Plug 'mhinz/vim-startify'
+
 call plug#end()
 
 " ========================================
