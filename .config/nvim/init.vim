@@ -1,3 +1,4 @@
+set shell=/usr/bin/env\ bash
 let mapleader = "\<Space>"
 
 " Ale stuff - must happen before plugins
@@ -62,9 +63,29 @@ set showmatch
 set splitright
 set splitbelow
 
-" Fuzzy File Finding
-set path+=**
+" Wild menu
 set wildmenu
+set wildmode=list:longest
+
+" Don't show mode
+set noshowmode
+
+" Don't show no write since last change when changing buffers without save
+set hidden
+
+" No extra space when joining lines ending with .?!
+set nojoinspaces
+
+" Remove included files from completion
+set complete-=i
+
+" Proper searching
+set incsearch " Highlight search as typing
+set ignorecase
+set smartcase
+
+" Explicitly set read files open in vim that have been changed outside
+set autoread
 
 " Colour Scheme
 syntax enable
@@ -145,6 +166,14 @@ autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python' shellescap
 " Very magic modifier on search by default
 nnoremap ? ?\v
 nnoremap / /\v
+cnoremap %s/ %sm/
+
+" Auto center search results
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
 
 " GoTo code nav
 nmap <silent> gd <Plug>(coc-definition)
@@ -159,8 +188,54 @@ nnoremap <leader><leader> <c-^>
 map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
 
+" Smart navigation? - tab for trigger completion
+inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
 " Use <c-space> to trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" ; as : in normal mode so no shift needed
+nnoremap ; :
+
+" ctrl-h to stop searching
+vnoremap <C-h> :nohlsearch<CR>
+nnoremap <C-h> :nohlsearch<CR>
+
+" start/end of line with home row
+map H ^
+map L $
+
+" change Y behaviour to match others
+map Y y$
+
+" Open new file adjacent to current file
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Left and right arrows can switch buffers
+nnoremap <left> :bp<CR>
+nnoremap <right> :bn<CR>
+
+" coc rename symbols
+nmap <leader>rn <Plug>(coc-rename)
+
+" replace up to next _
+nnoremap <leader>m ct_
 
 " ===============================
 "         Autocommands
