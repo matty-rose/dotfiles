@@ -1,3 +1,9 @@
+# Start tmux
+if status is-interactive
+and not set -q TMUX
+    exec TMUX
+end
+
 # Abbreviations
 abbr -a e nvim
 abbr -a gst "git status"
