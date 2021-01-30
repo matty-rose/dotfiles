@@ -28,6 +28,14 @@ else
     abbr -a lll 'ls -la'
 end
 
+# Always run tmux when opening terminal
+if status --is-interactive
+# Don't nest tmux sessions
+and not set -q TMUX
+    # Create session called main or attach if it already exists
+    tmux new-session -A -s main
+end
+
 # Fish Stuff
 set -g theme_display_docker_machine yes
 set -g theme_display_virtualenv yes
