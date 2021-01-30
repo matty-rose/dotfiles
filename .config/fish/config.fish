@@ -1,11 +1,10 @@
-# Start tmux
-if status is-interactive
-and not set -q TMUX
-    exec TMUX
-end
-
-# Abbreviations
+# General Abbreviations
 abbr -a e nvim
+abbr -a pa "source (poetry env info --path)/bin/activate.fish"
+abbr -a cpom "config push origin master"
+abbr -a vimdiff "nvim -d"
+
+# Git Abbreviations
 abbr -a gst "git status"
 abbr -a gad "git add"
 abbr -a gch "git checkout"
@@ -15,9 +14,6 @@ abbr -a gcp "git cherry-pick"
 abbr -a gpo "git pull origin"
 abbr -a grc "git rebase --continue"
 abbr -a grs "git rebase --skip"
-abbr -a pa "source (poetry env info --path)/bin/activate.fish"
-abbr -a cpom "config push origin master"
-abbr -a vimdiff "nvim -d"
 
 # Exa
 if command -v exa > /dev/null
