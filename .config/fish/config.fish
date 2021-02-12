@@ -84,6 +84,9 @@ set -gx PATH $PATH $HOME/.istioctl/bin
 # No python bytecode
 set -gx PYTHONDONTWRITEBYTECODE 1
 
+# Good bash
+set -gx PATH /usr/local/Cellar/bash/5.1.4/bin $PATH
+
 function fish_greeting
 	echo
 	echo -e (uname -n | awk '{print " \\\\e[1mUser: \\\\e[0;32m"$0"\\\\e[0m"}')
