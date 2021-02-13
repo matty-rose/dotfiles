@@ -216,8 +216,8 @@ endif
 nnoremap ; :
 
 " ctrl-h to stop searching
-vnoremap <C-h> :nohlsearch<CR>
-nnoremap <C-h> :nohlsearch<CR>
+vnoremap <leader>h :nohlsearch<CR>
+nnoremap <leader>h :nohlsearch<CR>
 
 " start/end of line with home row
 map H ^
