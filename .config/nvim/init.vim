@@ -215,7 +215,7 @@ endif
 " ; as : in normal mode so no shift needed
 nnoremap ; :
 
-" ctrl-h to stop searching
+" stop searching
 vnoremap <leader>h :nohlsearch<CR>
 nnoremap <leader>h :nohlsearch<CR>
 
