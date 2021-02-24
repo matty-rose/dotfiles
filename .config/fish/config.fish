@@ -2,6 +2,7 @@
 abbr -a e nvim
 abbr -a pa "source (poetry env info --path)/bin/activate.fish"
 abbr -a cpom "config push origin master"
+abbr -a ccam "config commit -am"
 abbr -a vimdiff "nvim -d"
 
 # Git Abbreviations
@@ -14,6 +15,7 @@ abbr -a gcp "git cherry-pick"
 abbr -a gpo "git pull origin"
 abbr -a grc "git rebase --continue"
 abbr -a grs "git rebase --skip"
+abbr -a gmt "git mergetool"
 
 # Exa
 if command -v exa > /dev/null
