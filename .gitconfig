@@ -9,7 +9,11 @@
 [core]
     editor = nvim
 [merge]
-    tool = nvim -d
+    tool = vimdiff
+[mergetool]
+    keepBackup = false
+[mergetool "vimdiff"]
+    cmd = nvim -d $LOCAL $MERGED $REMOTE -c 'wincmd l' -c 'wincmd J'
 [diff]
     algorithm = histogram
 [alias]

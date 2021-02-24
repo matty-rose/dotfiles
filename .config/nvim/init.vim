@@ -30,9 +30,13 @@ Plug 'terryma/vim-expand-region'
 " For Git blame
 Plug 'tpope/vim-fugitive'
 
+" Git [n ]n to move between merge conflict markers
+Plug 'tpope/vim-unimpaired'
+
 " Semantic Language Support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Fuzzy Finding
 Plug 'airblade/vim-rooter'
@@ -262,6 +266,10 @@ vmap <C-v> <Plug>(expand_region_shrink)
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
+
+" Git merge conflict selects
+nnoremap gdh :diffget 1<CR>
+nnoremap gdl :diffget 3<CR>
 
 " ===============================
 "         Autocommands
