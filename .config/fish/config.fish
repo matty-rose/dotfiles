@@ -102,6 +102,15 @@ function fish_greeting
 	echo
 end
 
+function d
+    while test $PWD != "/"
+        if test -d .git
+            break
+        end
+        cd ..
+    end
+end
+
 # Coloured man page
 setenv LESS_TERMCAP_mb \e'[01;31m'       # begin blinking
 setenv LESS_TERMCAP_md \e'[01;38;5;74m'  # begin bold
