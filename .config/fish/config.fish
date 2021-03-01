@@ -16,6 +16,7 @@ abbr -a gpo "git pull origin"
 abbr -a grc "git rebase --continue"
 abbr -a grs "git rebase --skip"
 abbr -a gmt "git mergetool"
+abbr -a gd "git diff"
 
 # Exa
 if command -v exa > /dev/null
