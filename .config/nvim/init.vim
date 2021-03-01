@@ -245,6 +245,9 @@ map L $
 " change Y behaviour to match others
 map Y y$
 
+" Break line shortcut (overrides some man command)
+nnoremap K i<CR><Esc>
+
 " Open new file adjacent to current file
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
