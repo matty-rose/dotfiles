@@ -45,11 +45,13 @@ set -g theme_display_virtualenv yes
 set -g theme_display_user ssh
 set -g theme_display_host ssh
 set -g theme_display_git_master_branch yes
+set -g theme_display_k8s_context no
 set -g theme_powerline_fonts yes
-set -g theme_nerd_fonts no
+set -g theme_nerd_fonts yes
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_use_abbreviated_branch_names no
 set -g theme_newline_cursor yes
+set -g theme_avoid_ambiguous_glyphs yes
 
 set -e CONDA_SHLVL
 
@@ -64,7 +66,7 @@ set PATH /Users/matt/anaconda3/condabin:/Users/matt/anaconda3/bin $PATH
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 
 # Double virtual env in prompt
-set -gx VIRTUAL_ENV_DISABLE_PROMPT true
+set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # Aliases
 alias config="/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME"
