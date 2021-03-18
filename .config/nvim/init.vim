@@ -56,6 +56,7 @@ set showcmd
 
 " Line numbering
 set number
+set relativenumber
 set numberwidth=1
 set cursorline
 
@@ -117,7 +118,7 @@ let g:ale_linters = {
             \ 'javascript': ['eslint'], 
             \ 'typescript': ['eslint'], 
             \ 'python': ['flake8'], 
-            \ 'go': ['golint'], 
+            \ 'go': ['golangci-lint'],
             \ 'dockerfile': ['hadolint'], 
             \ 'terraform': ['tflint']
             \ }
