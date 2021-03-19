@@ -1,3 +1,7 @@
+#================================================
+#             ABBREVIATIONS/ALIASES
+#================================================
+#
 # General Abbreviations
 abbr -a e nvim
 abbr -a pa "source (poetry env info --path)/bin/activate.fish"
@@ -31,6 +35,13 @@ else
     abbr -a lll 'ls -la'
 end
 
+# Aliases
+alias config="/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME"
+
+#================================================
+#                     TMUX
+#================================================
+
 # Always run tmux when opening terminal
 if status --is-interactive
 # Don't nest tmux sessions
@@ -38,6 +49,10 @@ and not set -q TMUX
     # Create session called main or attach if it already exists
     tmux new-session -A -s main
 end
+
+#================================================
+#             ENVIRONMENT VARIABLES
+#================================================
 
 # Fish Stuff
 set -g theme_display_docker_machine yes
@@ -55,11 +70,7 @@ set -g theme_avoid_ambiguous_glyphs yes
 
 set -e CONDA_SHLVL
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /Users/matt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
-
+# Set conda in path properly
 set PATH /Users/matt/anaconda3/condabin:/Users/matt/anaconda3/bin $PATH
 
 # Stop brew autoupdating every install
@@ -67,12 +78,6 @@ set -gx HOMEBREW_NO_AUTO_UPDATE 1
 
 # Double virtual env in prompt
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
-
-# Aliases
-alias config="/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/matt/google-cloud-sdk/path.fish.inc' ]; . '/Users/matt/google-cloud-sdk/path.fish.inc'; end
 
 #kubectl krew
 set -gx PATH $PATH $HOME/.krew/bin
@@ -91,6 +96,30 @@ set -gx PYTHONDONTWRITEBYTECODE 1
 
 # Good bash
 set -gx PATH /usr/local/Cellar/bash/5.1.4/bin $PATH
+
+# Coloured man page
+setenv LESS_TERMCAP_mb \e'[01;31m'       # begin blinking
+setenv LESS_TERMCAP_md \e'[01;38;5;74m'  # begin bold
+setenv LESS_TERMCAP_me \e'[0m'           # end mode
+setenv LESS_TERMCAP_se \e'[0m'           # end standout-mode
+setenv LESS_TERMCAP_so \e'[38;5;246m'    # begin standout-mode - info box
+setenv LESS_TERMCAP_ue \e'[0m'           # end underline
+setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
+
+# kubectx plugin separator
+set -gx KUBECTL_PROMPT_SEPARATOR "|"
+
+#================================================
+#                     OTHER
+#================================================
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /Users/matt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/matt/google-cloud-sdk/path.fish.inc' ]; . '/Users/matt/google-cloud-sdk/path.fish.inc'; end
 
 function fish_greeting
 	echo
@@ -112,12 +141,3 @@ function d
         cd ..
     end
 end
-
-# Coloured man page
-setenv LESS_TERMCAP_mb \e'[01;31m'       # begin blinking
-setenv LESS_TERMCAP_md \e'[01;38;5;74m'  # begin bold
-setenv LESS_TERMCAP_me \e'[0m'           # end mode
-setenv LESS_TERMCAP_se \e'[0m'           # end standout-mode
-setenv LESS_TERMCAP_so \e'[38;5;246m'    # begin standout-mode - info box
-setenv LESS_TERMCAP_ue \e'[0m'           # end underline
-setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
