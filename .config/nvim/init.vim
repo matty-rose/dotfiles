@@ -120,7 +120,8 @@ let g:ale_linters = {
             \ 'python': ['flake8'], 
             \ 'go': ['golangci-lint'],
             \ 'dockerfile': ['hadolint'], 
-            \ 'terraform': ['tflint']
+            \ 'terraform': ['tflint'],
+            \ 'rust': ['rls']
             \ }
 let g:ale_fixers = {
             \ 'python': ['black', 'isort'], 
@@ -129,7 +130,8 @@ let g:ale_fixers = {
             \ 'javascript': ['prettier'], 
             \ 'typescript': ['prettier'], 
             \ 'yaml': ['prettier'], 
-            \ 'terraform': ['terraform']
+            \ 'terraform': ['terraform'],
+            \ 'rust': ['rustfmt']
             \ }
 let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
