@@ -1,12 +1,10 @@
 #================================================
 #             ABBREVIATIONS/ALIASES
 #================================================
-#
+
 # General Abbreviations
 abbr -a e nvim
 abbr -a pa "source (poetry env info --path)/bin/activate.fish"
-abbr -a cpom "config push origin master"
-abbr -a ccam "config commit -am"
 abbr -a vimdiff "nvim -d"
 
 # Git Abbreviations
@@ -22,21 +20,25 @@ abbr -a grs "git rebase --skip"
 abbr -a gmt "git mergetool"
 abbr -a gd "git diff"
 
+# Dotfiles
+alias config="/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME"
+abbr -a cpom "config push origin master"
+abbr -a ccm "config commit -m"
+abbr -a ca "config add"
+abbr -a cst "config status"
+
 # Exa
 if command -v exa > /dev/null
     abbr -a l 'exa'
     abbr -a ls 'exa'
-    abbr -a ll 'exa -l'
-    abbr -a lll 'exa -la'
-    abbr -a la 'exa -la'
+    abbr -a ll 'exa -l --git'
+    abbr -a lll 'exa -la --git'
+    abbr -a la 'exa -la --git'
 else
     abbr -a l 'ls'
     abbr -a ll 'ls -l'
     abbr -a lll 'ls -la'
 end
-
-# Aliases
-alias config="/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME"
 
 #================================================
 #                     TMUX
