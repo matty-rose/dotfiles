@@ -111,6 +111,9 @@ setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 # kubectx plugin separator
 set -gx KUBECTL_PROMPT_SEPARATOR "|"
 
+# Rust
+set -gx PATH $PATH $HOME/.cargo/bin
+
 #================================================
 #                     OTHER
 #================================================
