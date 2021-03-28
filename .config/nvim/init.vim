@@ -121,7 +121,8 @@ let g:ale_linters = {
             \ 'go': ['golangci-lint'],
             \ 'dockerfile': ['hadolint'], 
             \ 'terraform': ['tflint'],
-            \ 'rust': ['rls']
+            \ 'rust': ['rls'],
+            \ 'haskell': ['hlint']
             \ }
 let g:ale_fixers = {
             \ 'python': ['black', 'isort'], 
@@ -131,7 +132,8 @@ let g:ale_fixers = {
             \ 'typescript': ['prettier'], 
             \ 'yaml': ['prettier'], 
             \ 'terraform': ['terraform'],
-            \ 'rust': ['rustfmt']
+            \ 'rust': ['rustfmt'],
+            \ 'haskell': ['hindent']
             \ }
 let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
