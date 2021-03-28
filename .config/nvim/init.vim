@@ -33,6 +33,9 @@ Plug 'tpope/vim-fugitive'
 " Git [n ]n to move between merge conflict markers
 Plug 'tpope/vim-unimpaired'
 
+" Navigation
+Plug 'christoomey/vim-tmux-navigator'
+
 " Semantic Language Support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
@@ -178,12 +181,6 @@ set vb t_vb=
 
 " Quick save
 nmap <leader>w :w<CR>
-
-" Better split navigation
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
 
 " Run python code
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
