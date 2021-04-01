@@ -26,6 +26,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
 Plug 'terryma/vim-expand-region'
+Plug 'Yggdroot/indentLine'
 
 " For Git blame
 Plug 'tpope/vim-fugitive'
