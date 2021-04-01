@@ -35,6 +35,7 @@ Plug 'tpope/vim-unimpaired'
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'psliwka/vim-smoothie'
 
 " Semantic Language Support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -48,6 +49,7 @@ Plug 'junegunn/fzf.vim'
 
 " Fancy Startup
 Plug 'mhinz/vim-startify'
+
 
 call plug#end()
 
