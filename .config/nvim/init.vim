@@ -182,6 +182,10 @@ set vb t_vb=
 "         Keyboard Shortcuts
 " =====================================
 
+" Move between wrapped lines, rather than jumping over wrapped segments
+nmap j gj
+nmap k gk
+
 " Quick save
 nmap <leader>w :w<CR>
 
