@@ -20,7 +20,7 @@
 [alias]
     ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [a:%an,c:%cn]" --decorate --numstat
-    uncommit = reset --sort HEAD^
+    uncommit = reset --soft HEAD^
     unstage = reset
 [delta]
     plus-style = "syntax #012800"
