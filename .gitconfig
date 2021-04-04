@@ -9,6 +9,7 @@
 [core]
     editor = nvim
     pager = delta
+    excludesfile = ~/.gitignore
 [merge]
     tool = vimdiff
 [mergetool]
