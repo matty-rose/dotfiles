@@ -19,7 +19,7 @@
 [diff]
     algorithm = histogram
 [alias]
-    bselect = !git branch | grep -v '^*' | fzf-tmux -d 20% --reverse | xargs git checkout
+    bs = !git branch | grep -v '^*' | fzf-tmux -d 20% --reverse | xargs git checkout
     ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [a:%an,c:%cn]" --decorate --numstat
     uncommit = reset --soft HEAD^
