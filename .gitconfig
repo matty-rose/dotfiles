@@ -23,6 +23,9 @@
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [a:%an,c:%cn]" --decorate --numstat
     uncommit = reset --soft HEAD^
     unstage = reset
+    graph = log --pretty=format:'%C(yellow)%h%C(reset) %C(blue)%an%C(reset) %C(cyan)%cr%C(reset) %s %C(green)%d%C(reset)' --graph --date-order
+[url "git@github.com:"]
+    insteadOf = https://github.com/
 [delta]
     plus-style = "syntax #012800"
     minus-style = "syntax #340001"
