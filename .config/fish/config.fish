@@ -4,6 +4,7 @@
 
 # General Abbreviations
 abbr -a e nvim
+abbr -a ef "nvim (fzf-tmux)"
 abbr -a pa "source (poetry env info --path)/bin/activate.fish"
 abbr -a vimdiff "nvim -d"
 
