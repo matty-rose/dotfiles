@@ -4,7 +4,7 @@
 
 # General Abbreviations
 abbr -a e nvim
-abbr -a ef "nvim (fzf-tmux)"
+abbr -a ef "nvim (fzf-tmux -d 30% --reverse)"
 abbr -a pa "source (poetry env info --path)/bin/activate.fish"
 abbr -a vimdiff "nvim -d"
 
@@ -27,6 +27,7 @@ abbr -a cpom "config push origin master"
 abbr -a ccm "config commit -m"
 abbr -a ca "config add"
 abbr -a cst "config status"
+abbr -a cdiff "config diff"
 
 # Exa
 if command -v exa > /dev/null
