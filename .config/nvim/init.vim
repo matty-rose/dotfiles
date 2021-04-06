@@ -178,6 +178,8 @@ set colorcolumn=88
 " Mute bell
 set vb t_vb=
 
+au FileType markdown let g:indentLine_setConceal=0
+
 " =====================================
 "         Keyboard Shortcuts
 " =====================================
