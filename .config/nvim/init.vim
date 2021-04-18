@@ -141,6 +141,8 @@ let g:ale_fixers = {
             \ 'rust': ['rustfmt'],
             \ 'haskell': ['hindent']
             \ }
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
 let g:ale_sign_error = '⤫'
@@ -148,6 +150,9 @@ let g:ale_sign_warning = '⚠'
 
 " Ale python
 let g:ale_python_flake8_options = "--max-line-length 88"
+
+" Ale golang
+let g:ale_go_golangci_lint_options = ""
 
 " Fzf options
 let g:fzf_layout = { 'down': '~20%' }
@@ -285,12 +290,12 @@ nnoremap <silent> p p`]
 nnoremap gdh :diffget 1<CR>
 nnoremap gdl :diffget 3<CR>
 
+" Move to next ale lint error
+nmap <silent> <C-e> <Plug>(ale_next_wrap)
+
 " ===============================
 "         Autocommands
 " ===============================
-
-" Add missing go imports on save
-autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Jump to last edit position on file open
 if has("autocmd")
@@ -299,3 +304,14 @@ endif
 
 " Help Filetype detection
 autocmd BufRead *.md set filetype=markdown
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors    return l:counts.total == 0 ? 'OK' : printf(
+        \   '%d⨉ %d⚠ ',
+        \   all_non_errors,
+        \   all_errors
+        \)
+endfunction
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}
