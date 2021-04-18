@@ -156,9 +156,12 @@ linters:
     - errcheck
     - exportloopref
     - goimports
-  presets:
-    - bugs
-    - unused
+    - deadcode
+    - whitespace
+    - wastedassign
+    - structcheck
+    - typecheck
+    - misspell
   fast: true
 
 
