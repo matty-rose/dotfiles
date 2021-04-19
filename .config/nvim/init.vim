@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'alx741/vim-stylishask'
 Plug 'stephpy/vim-yaml'
+Plug 'broadinstitute/vim-wdl'
 
 " Statusline
 Plug 'vim-airline/vim-airline'
