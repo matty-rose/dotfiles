@@ -135,9 +135,10 @@ function fish_greeting
 	echo
 	echo -e (uname -n | awk '{print " \\\\e[1mUser: \\\\e[0;32m"$0"\\\\e[0m"}')
 	echo -ne (\
-	    df -l -h | \
-	    grep -E 'dev/disk1s1' |
-	    awk '{print " \\\\e[1mDisk Usage:\\\\e[0m  "$4" Available\n  "$3"/"$2" Used\n  Capacity: "$5}'
+	    df -l | \
+	    grep -E 'dev/disk1s[123456] ' |
+        awk '{ TOTAL = $2; USED += $3; AVAIL = $4; CAPACITY += $5 } END { print " \\\\e[1mDisk Usage:\\\\e[0m  "USED * 512 * 1e-9"Gi Available\n  "AVAIL * 512 * 1e-9"/"TOTAL * 512 * 1e-9"Gi Used\n  Capacity: "CAPACITY"%"}'
+	    # awk '{print " \\\\e[1mDisk Usage:\\\\e[0m  "$4" Available\n  "$3"/"$2" Used\n  Capacity: "$5}'
 	)
 	echo
 	echo
