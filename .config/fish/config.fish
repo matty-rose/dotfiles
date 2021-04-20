@@ -23,7 +23,7 @@ abbr -a gd "git diff"
 
 # Dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME"
-abbr -a cpom "config push origin master"
+abbr -a cpom "config push origin main"
 abbr -a ccm "config commit -m"
 abbr -a ca "config add"
 abbr -a cst "config status"
