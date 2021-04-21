@@ -147,7 +147,6 @@ linters:
     - lll
     - testpackage
     - golint
-    - godot
     - goconst
     - dupl
     - funlen
