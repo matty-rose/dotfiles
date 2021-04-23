@@ -119,6 +119,9 @@ set -gx PATH $PATH $HOME/.cargo/bin
 # Haskell Language Server
 set -gx PATH $PATH $HOME/.haskell-language-server/bin
 
+# Kubebuilder
+set -gx PATH $PATH /usr/local/kubebuilder/bin
+
 #================================================
 #                     OTHER
 #================================================
