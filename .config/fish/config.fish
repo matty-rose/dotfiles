@@ -126,6 +126,8 @@ set -gx PATH $PATH /usr/local/kubebuilder/bin
 #                     OTHER
 #================================================
 
+status --is-interactive; and source (rbenv init -|psub)
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 eval /Users/matt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
