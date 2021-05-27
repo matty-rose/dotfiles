@@ -126,6 +126,7 @@ set -gx PATH $PATH /usr/local/kubebuilder/bin
 #                     OTHER
 #================================================
 
+# Ruby version management
 status --is-interactive; and source (rbenv init -|psub)
 
 # >>> conda initialize >>>
@@ -156,3 +157,6 @@ function d
         cd ..
     end
 end
+
+# Direnv
+direnv hook fish | source
