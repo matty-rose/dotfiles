@@ -72,12 +72,6 @@ set -g theme_use_abbreviated_branch_names no
 set -g theme_newline_cursor yes
 set -g theme_avoid_ambiguous_glyphs yes
 
-set -e CONDA_SHLVL
-
-# Set conda in path properly
-fish_add_path /Users/matt/anaconda3/condabin
-fish_add_path /Users/matt/anaconda3/bin
-
 # Stop brew autoupdating every install
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 
