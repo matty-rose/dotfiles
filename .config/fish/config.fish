@@ -123,6 +123,9 @@ fish_add_path $HOME/.pyenv/bin
 # Poetry
 fish_add_path $HOME/.poetry/bin
 
+# Default ripgrep command for fzf
+set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden -g "!.git"'
+
 #================================================
 #                     OTHER
 #================================================
