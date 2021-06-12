@@ -75,7 +75,8 @@ set -g theme_avoid_ambiguous_glyphs yes
 set -e CONDA_SHLVL
 
 # Set conda in path properly
-set PATH /Users/matt/anaconda3/condabin:/Users/matt/anaconda3/bin $PATH
+fish_add_path /Users/matt/anaconda3/condabin
+fish_add_path /Users/matt/anaconda3/bin
 
 # Stop brew autoupdating every install
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
@@ -84,22 +85,22 @@ set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
 #kubectl krew
-set -gx PATH $PATH $HOME/.krew/bin
+fish_add_path $HOME/.krew/bin
 
 # Go
-set -gx PATH $PATH $HOME/go/bin
+fish_add_path $HOME/go/bin
 
 # Set kubeeditor
 set -gx KUBE_EDITOR /usr/local/bin/nvim
 
 # Istioctl
-set -gx PATH $PATH $HOME/.istioctl/bin
+fish_add_path $HOME/.istioctl/bin
 
 # No python bytecode
 set -gx PYTHONDONTWRITEBYTECODE 1
 
 # Good bash
-set -gx PATH /usr/local/Cellar/bash/5.1.4/bin $PATH
+fish_add_path /usr/local/Cellar/bash/5.1.4/bin
 
 # Coloured man page
 setenv LESS_TERMCAP_mb \e'[01;31m'       # begin blinking
@@ -114,13 +115,19 @@ setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 set -gx KUBECTL_PROMPT_SEPARATOR "|"
 
 # Rust
-set -gx PATH $PATH $HOME/.cargo/bin
+fish_add_path $HOME/.cargo/bin
 
 # Haskell Language Server
-set -gx PATH $PATH $HOME/.haskell-language-server/bin
+fish_add_path $HOME/.haskell-language-server/bin
 
 # Kubebuilder
-set -gx PATH $PATH /usr/local/kubebuilder/bin
+fish_add_path /usr/local/kubebuilder/bin
+
+# Pyenv
+fish_add_path $HOME/.pyenv/bin
+
+# Poetry
+fish_add_path $HOME/.poetry/bin
 
 #================================================
 #                     OTHER
@@ -129,10 +136,9 @@ set -gx PATH $PATH /usr/local/kubebuilder/bin
 # Ruby version management
 status --is-interactive; and source (rbenv init -|psub)
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /Users/matt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
+# Pyenv
+status is-login; and pyenv init --path | source
+pyenv init - | source
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/matt/google-cloud-sdk/path.fish.inc' ]; . '/Users/matt/google-cloud-sdk/path.fish.inc'; end
