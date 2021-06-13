@@ -61,7 +61,7 @@ end
 # Fish Stuff
 set -g theme_display_docker_machine yes
 set -g theme_display_virtualenv yes
-set -g theme_display_user ssh
+set -g theme_display_user yes
 set -g theme_display_host ssh
 set -g theme_display_git_master_branch yes
 set -g theme_display_k8s_context no
