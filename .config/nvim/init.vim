@@ -124,7 +124,7 @@ set undofile
 let g:ale_linters = {
             \ 'javascript': ['eslint'], 
             \ 'typescript': ['eslint'], 
-            \ 'python': ['flake8'], 
+            \ 'python': ['flake8', 'mypy'], 
             \ 'go': ['golangci-lint'],
             \ 'dockerfile': ['hadolint'], 
             \ 'terraform': ['tflint'],
