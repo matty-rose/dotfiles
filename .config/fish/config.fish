@@ -58,6 +58,9 @@ end
 #             ENVIRONMENT VARIABLES
 #================================================
 
+# Add manually installed neovim
+fish_add_path $HOME/.nvim/bin
+
 # Fish Stuff
 set -g theme_display_docker_machine yes
 set -g theme_display_virtualenv yes
@@ -85,7 +88,7 @@ fish_add_path $HOME/.krew/bin
 fish_add_path $HOME/go/bin
 
 # Set kubeeditor
-set -gx KUBE_EDITOR /usr/local/bin/nvim
+set -gx KUBE_EDITOR $HOME/.nvim/bin/nvim
 
 # Istioctl
 fish_add_path $HOME/.istioctl/bin
@@ -125,6 +128,9 @@ fish_add_path $HOME/.poetry/bin
 
 # Default ripgrep command for fzf
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden -g "!.git"'
+
+# JDK 8
+fish_add_path /usr/local/opt/openjdk@8/bin
 
 #================================================
 #                     OTHER

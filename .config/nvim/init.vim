@@ -1,4 +1,3 @@
-set shell=/usr/bin/env\ bash
 let mapleader = "\<Space>"
 
 " Ale stuff - must happen before plugins
@@ -42,7 +41,6 @@ Plug 'psliwka/vim-smoothie'
 " Semantic Language Support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Fuzzy Finding
 Plug 'airblade/vim-rooter'
