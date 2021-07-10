@@ -9,9 +9,9 @@ let g:ale_disable_lsp = 1
 call plug#begin('~/.vim/plugged')
 
 " Syntax/code specific
-Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'hashivim/vim-terraform' " seems to be only way for autoindent
 Plug 'alx741/vim-stylishask'
-Plug 'stephpy/vim-yaml'
 Plug 'broadinstitute/vim-wdl'
 
 " Statusline
@@ -182,8 +182,6 @@ set colorcolumn=88
 " Mute bell
 set vb t_vb=
 
-au FileType markdown let g:indentLine_setConceal=0
-
 " =====================================
 "         Keyboard Shortcuts
 " =====================================
@@ -196,8 +194,8 @@ nmap k gk
 nmap <leader>w :w<CR>
 
 " Run python code
-autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
-autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
+au FileType python map <buffer> <F9> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
+au FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
 
 " Very magic modifier on search by default
 nnoremap ? ?\v
@@ -315,8 +313,15 @@ if has("autocmd")
 endif
 
 " Help Filetype detection
-autocmd BufRead *.md set filetype=markdown
+au BufRead *.md set filetype=markdown
+au BufRead,BufNewFile *.hcl set filetype=hcl
+au BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
 
+" Filetype Specific options
+au FileType markdown let g:indentLine_setConceal=0
+au FileType tf setlocal shiftwidth=2 softtabstop=2
+
+" Put linting status in bar
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))    let l:all_errors = l:counts.error + l:counts.style_error
     let l:all_non_errors = l:counts.total - l:all_errors    return l:counts.total == 0 ? 'OK' : printf(
@@ -327,3 +332,19 @@ function! LinterStatus() abort
 endfunction
 set statusline+=%=
 set statusline+=\ %{LinterStatus()}
+
+" ========================================
+"               Tree-sitter
+" ========================================
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "bash", "c", "dockerfile", "fish", "go", "gomod", "hcl", "html", "javascript", "json", "jsonc", "lua", "python", "ruby", "rust", "toml", "typescript", "yaml" },
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+  }
+}
+EOF
