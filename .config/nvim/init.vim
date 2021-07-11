@@ -27,6 +27,7 @@ Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
 Plug 'terryma/vim-expand-region'
 Plug 'Yggdroot/indentLine'
+Plug 'windwp/nvim-autopairs'
 
 " For Git blame
 Plug 'tpope/vim-fugitive'
@@ -347,4 +348,12 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   }
 }
+EOF
+
+" ========================================
+"                  Lua
+" ========================================
+
+lua <<EOF
+require("nvim-autopairs").setup()
 EOF
