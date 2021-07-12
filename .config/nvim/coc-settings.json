@@ -18,6 +18,7 @@
             "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
             "filetypes": ["haskell", "lhaskell"]
         }
-    }
+    },
+    "coc.preferences.formatOnType": true
 }
 
