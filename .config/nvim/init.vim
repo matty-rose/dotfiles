@@ -1,6 +1,5 @@
 let mapleader = "\<Space>"
 
-" Ale stuff - must happen before plugins
 let g:ale_disable_lsp = 1
 
 " ====================
@@ -8,8 +7,16 @@ let g:ale_disable_lsp = 1
 " ====================
 call plug#begin('~/.vim/plugged')
 
+" LSP + Autocomplete
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+
+" Linting + Formatting
+Plug 'dense-analysis/ale'
+
 " Syntax/code specific
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'nvim-treesitter/playground'
 Plug 'hashivim/vim-terraform' " seems to be only way for autoindent
 Plug 'alx741/vim-stylishask'
 Plug 'broadinstitute/vim-wdl'
@@ -27,6 +34,7 @@ Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
 Plug 'terryma/vim-expand-region'
 Plug 'Yggdroot/indentLine'
+Plug 'windwp/nvim-autopairs'
 
 " For Git blame
 Plug 'tpope/vim-fugitive'
@@ -38,10 +46,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'psliwka/vim-smoothie'
 
-" Semantic Language Support
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dense-analysis/ale'
-
 " Fuzzy Finding
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -49,7 +53,6 @@ Plug 'junegunn/fzf.vim'
 
 " Fancy Startup
 Plug 'mhinz/vim-startify'
-
 
 call plug#end()
 
@@ -210,23 +213,23 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
 " GoTo code nav
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
 " Show documentation in preview window
-nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
+" nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-    if (index(['vim', 'help'], &filetype) >= 0)
-        execute 'h '.expand('<cword')
-    elseif (coc#rpc#ready())
-        call CocActionAsync('doHover')
-    else
-        execute '!' . &keywordprg . " " . expand('<cword>')
-    endif
-endfunction
+" function! s:show_documentation()
+"     if (index(['vim', 'help'], &filetype) >= 0)
+"         execute 'h '.expand('<cword')
+"     elseif (coc#rpc#ready())
+"         call CocActionAsync('doHover')
+"     else
+"         execute '!' . &keywordprg . " " . expand('<cword>')
+"     endif
+" endfunction
 
 " <leader><leader> toggles between most recently used buffers
 nnoremap <leader><leader> <c-^>
@@ -236,22 +239,22 @@ map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
 
 " Smart navigation? - tab for trigger completion
-inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
+" inoremap <silent><expr> <TAB>
+"             \ pumvisible() ? "\<C-n>" :
+"             \ <SID>check_back_space() ? "\<TAB>" :
+"             \ coc#refresh()
 
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~# '\s'
-endfunction
+" function! s:check_back_space() abort
+"     let col = col('.') - 1
+"     return !col || getline('.')[col - 1] =~# '\s'
+" endfunction
 
 " Use <c-space> to trigger completion
-inoremap <silent><expr> <c-space> coc#refresh()
+" inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc#on_enter() adds the spacing when CR after brackets Coc only does snippet and additional edit on confirm.
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " ; as : in normal mode so no shift needed
 nnoremap ; :
@@ -277,9 +280,6 @@ nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
 
-" coc rename symbols
-nmap <leader>rn <Plug>(coc-rename)
-
 " replace up to next _
 nnoremap <leader>m ct_
 
@@ -296,8 +296,12 @@ nnoremap <silent> p p`]
 nnoremap gdh :diffget 1<CR>
 nnoremap gdl :diffget 3<CR>
 
-" Move to next ale lint error
-nmap <silent> <C-e> <Plug>(ale_next_wrap)
+" Compe
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 " ===============================
 "         Autocommands
@@ -310,24 +314,12 @@ endif
 
 " Help Filetype detection
 au BufRead *.md set filetype=markdown
-au BufRead,BufNewFile *.hcl set filetype=hcl
+" au BufRead,BufNewFile *.hcl set filetype=hcl
 au BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
 
 " Filetype Specific options
 au FileType markdown let g:indentLine_setConceal=0
 au FileType tf setlocal shiftwidth=2 softtabstop=2
-
-" Put linting status in bar
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors    return l:counts.total == 0 ? 'OK' : printf(
-        \   '%d⨉ %d⚠ ',
-        \   all_non_errors,
-        \   all_errors
-        \)
-endfunction
-set statusline+=%=
-set statusline+=\ %{LinterStatus()}
 
 " ========================================
 "               Tree-sitter
@@ -359,7 +351,86 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
   indent = {
-    enable = true,
+    enable = false,
   }
 }
+EOF
+
+" ========================================
+"           LSP + Autocomplete
+" ========================================
+lua <<EOF
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.dockerls.setup{}
+require'lspconfig'.gopls.setup{}
+require'lspconfig'.hls.setup{}
+require'lspconfig'.rust_analyzer.setup{}
+
+-- Compe setup
+vim.o.completeopt = "menuone,noselect"
+
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
+
+  source = {
+    path = true;
+    nvim_lsp = true;
+  };
+}
+
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
+-- Use (s-)tab to:
+--- move to prev/next item in completion menuone
+--- jump to prev/next snippet's placeholder
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-n>"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-p>"
+  else
+    return t "<S-Tab>"
+  end
+end
+
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+require("nvim-autopairs").setup()
+require("nvim-autopairs.completion.compe").setup({
+  map_cr = true, -- map <CR> on insert mode
+  map_complete = true -- auto insert '(' after select function/method item
+})
 EOF
