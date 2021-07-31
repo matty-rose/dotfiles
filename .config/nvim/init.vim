@@ -227,6 +227,7 @@ nnoremap <leader><leader> <c-^>
 map <C-p> :lua require'matt.telescope'.find_files()<CR>
 nmap <leader>; :Telescope buffers<CR>
 nnoremap <leader>fg :Telescope live_grep<CR>
+nnoremap <leader>fh :Telescope help_tags<CR>
 
 
 " ; as : in normal mode so no shift needed
