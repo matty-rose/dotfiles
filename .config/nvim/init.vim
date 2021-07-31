@@ -11,6 +11,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
 " Linting + Formatting
 Plug 'dense-analysis/ale'
 
@@ -37,7 +42,6 @@ Plug 'windwp/nvim-autopairs'
 
 " For Git blame
 Plug 'tpope/vim-fugitive'
-Plug 'APZelos/blamer.nvim'
 
 " Git [n ]n to move between merge conflict markers
 Plug 'tpope/vim-unimpaired'
@@ -48,8 +52,6 @@ Plug 'psliwka/vim-smoothie'
 
 " Fuzzy Finding
 Plug 'airblade/vim-rooter'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 
 " Fancy Startup
 Plug 'mhinz/vim-startify'
@@ -191,9 +193,6 @@ set colorcolumn=88
 " Mute bell
 set vb t_vb=
 
-" Blame
-let g:blamer_enabled = 1
-
 " =====================================
 "         Keyboard Shortcuts
 " =====================================
@@ -225,8 +224,10 @@ nnoremap <silent> g* g*zz
 nnoremap <leader><leader> <c-^>
 
 " Open
-map <C-p> :Files<CR>
-nmap <leader>; :Buffers<CR>
+map <C-p> :lua require'matt.telescope'.find_files()<CR>
+nmap <leader>; :Telescope buffers<CR>
+nnoremap <leader>fg :Telescope live_grep<CR>
+
 
 " ; as : in normal mode so no shift needed
 nnoremap ; :
