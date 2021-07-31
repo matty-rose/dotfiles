@@ -217,49 +217,12 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
-" GoTo code nav
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
-
-" Show documentation in preview window
-" nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
-
-" function! s:show_documentation()
-"     if (index(['vim', 'help'], &filetype) >= 0)
-"         execute 'h '.expand('<cword')
-"     elseif (coc#rpc#ready())
-"         call CocActionAsync('doHover')
-"     else
-"         execute '!' . &keywordprg . " " . expand('<cword>')
-"     endif
-" endfunction
-
 " <leader><leader> toggles between most recently used buffers
 nnoremap <leader><leader> <c-^>
 
 " Open
 map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
-
-" Smart navigation? - tab for trigger completion
-" inoremap <silent><expr> <TAB>
-"             \ pumvisible() ? "\<C-n>" :
-"             \ <SID>check_back_space() ? "\<TAB>" :
-"             \ coc#refresh()
-
-" function! s:check_back_space() abort
-"     let col = col('.') - 1
-"     return !col || getline('.')[col - 1] =~# '\s'
-" endfunction
-
-" Use <c-space> to trigger completion
-" inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc#on_enter() adds the spacing when CR after brackets Coc only does snippet and additional edit on confirm.
-" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " ; as : in normal mode so no shift needed
 nnoremap ; :
