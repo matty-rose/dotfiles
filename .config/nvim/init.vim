@@ -37,6 +37,7 @@ Plug 'windwp/nvim-autopairs'
 
 " For Git blame
 Plug 'tpope/vim-fugitive'
+Plug 'APZelos/blamer.nvim'
 
 " Git [n ]n to move between merge conflict markers
 Plug 'tpope/vim-unimpaired'
@@ -189,6 +190,9 @@ set colorcolumn=88
 
 " Mute bell
 set vb t_vb=
+
+" Blame
+let g:blamer_enabled = 1
 
 " =====================================
 "         Keyboard Shortcuts
