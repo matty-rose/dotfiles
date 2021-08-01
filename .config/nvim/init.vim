@@ -197,8 +197,8 @@ nnoremap / /\v
 cnoremap %s/ %sm/
 
 " Auto center search results
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
+nnoremap <silent> n nzzzv
+nnoremap <silent> N Nzzzv
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
@@ -228,6 +228,9 @@ map Y y$
 
 " Break line shortcut (overrides some man command)
 nnoremap K i<CR><Esc>
+
+" Join line with folds and keep cursor
+nnoremap J mzJ`z
 
 " Open new file adjacent to current file
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -259,6 +262,20 @@ inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 nnoremap <leader>y "*y
 vnoremap <leader>y "*y
 nnoremap <leader>Y gg"*yG
+
+" Breakpoints for undoing
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
+
+" Move text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
 
 " ===============================
 "         Autocommands
