@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
 " LSP + Autocomplete
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'ray-x/lsp_signature.nvim'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
