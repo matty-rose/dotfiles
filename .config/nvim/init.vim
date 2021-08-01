@@ -111,10 +111,10 @@ set autoread
 syntax enable
 set termguicolors
 colorscheme base16-monokai
-let g:airline_theme='powerlineish'
-let g:airline_powerline_fonts = 1
 
 " Buffer status line
+let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 
@@ -212,7 +212,6 @@ nmap <leader>; :Telescope buffers<CR>
 nnoremap <leader>fg :Telescope live_grep<CR>
 nnoremap <leader>fh :Telescope help_tags<CR>
 
-
 " ; as : in normal mode so no shift needed
 nnoremap ; :
 
@@ -232,10 +231,6 @@ nnoremap K i<CR><Esc>
 
 " Open new file adjacent to current file
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Left and right arrows can switch buffers
-nnoremap <left> :bp<CR>
-nnoremap <right> :bn<CR>
 
 " replace up to next _
 nnoremap <leader>m ct_
@@ -276,7 +271,6 @@ endif
 
 " Help Filetype detection
 au BufRead *.md set filetype=markdown
-" au BufRead,BufNewFile *.hcl set filetype=hcl
 au BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
 
 " Filetype Specific options
