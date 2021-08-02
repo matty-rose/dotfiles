@@ -294,6 +294,7 @@ au BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
 " Filetype Specific options
 au FileType markdown let g:indentLine_setConceal=0
 au FileType tf setlocal shiftwidth=2 softtabstop=2
+au FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 " ========================================
 "                   LUA
