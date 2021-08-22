@@ -25,6 +25,7 @@
     uncommit = reset --soft HEAD^
     unstage = reset
     graph = log --pretty=format:'%C(yellow)%h%C(reset) %C(blue)%an%C(reset) %C(cyan)%cr%C(reset) %s %C(green)%d%C(reset)' --graph --date-order
+    pushu = "! git push -u origin `git branch --show-current`"
 [url "git@github.com:"]
     insteadOf = https://github.com/
 [delta]
