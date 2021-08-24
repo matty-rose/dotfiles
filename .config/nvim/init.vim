@@ -165,6 +165,9 @@ let g:ale_python_flake8_options = "--max-line-length 88"
 " Ale golang
 let g:ale_go_golangci_lint_options = ""
 
+" Ale yaml
+let g:ale_javascript_prettier_options = "--tab-width 2 --single-quote false"
+
 " Better message display
 set cmdheight=2
 
