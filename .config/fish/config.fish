@@ -7,6 +7,7 @@ abbr -a e nvim
 abbr -a ef "nvim (fzf-tmux -d 30% --reverse)"
 abbr -a pa "source (poetry env info --path)/bin/activate.fish"
 abbr -a vimdiff "nvim -d"
+abbr -a poetry-bump "poetry show --no-dev -o -t | grep -v -e \"--\" | cut -d \" \" -f 1 | sed 's/\$/\@latest/g' | xargs poetry add"
 
 # Git Abbreviations
 abbr -a gst "git status"
