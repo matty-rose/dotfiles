@@ -1,3 +1,4 @@
+require'nvim-treesitter.install'.compilers = { "gcc" }
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { 
     "bash", 
@@ -6,6 +7,7 @@ require'nvim-treesitter.configs'.setup {
     "fish", 
     "go", 
     "gomod", 
+    "haskell",
     "hcl", 
     "html", 
     "javascript", 
@@ -17,7 +19,7 @@ require'nvim-treesitter.configs'.setup {
     "rust", 
     "toml", 
     "typescript", 
-    "yaml" 
+    "yaml",
   },
   highlight = {
     enable = true,
