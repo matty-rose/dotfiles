@@ -170,3 +170,6 @@ end
 
 # Direnv
 direnv hook fish | source
+
+# ASDF plugin
+source /usr/local/opt/asdf/asdf.fish
