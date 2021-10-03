@@ -87,6 +87,7 @@ fish_add_path $HOME/.krew/bin
 
 # Go
 fish_add_path $HOME/go/bin
+fish_add_path -a /usr/local/go/bin
 
 # Set kubeeditor
 set -gx KUBE_EDITOR $HOME/.nvim/bin/nvim
@@ -132,6 +133,15 @@ set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden -g "!.git"'
 
 # JDK 8
 fish_add_path /usr/local/opt/openjdk@8/bin
+
+# .local bin
+fish_add_path $HOME/.local/bin
+
+# GHC
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/matt/.ghcup/bin $PATH # ghcup-env
+
+# Yarn
+fish_add_path $HOME/.yarn/bin
 
 #================================================
 #                     OTHER
