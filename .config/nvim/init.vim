@@ -15,7 +15,7 @@ Plug 'ray-x/lsp_signature.nvim'
 " Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make', 'branch': 'main' }
 
 " Linting + Formatting
 Plug 'dense-analysis/ale'

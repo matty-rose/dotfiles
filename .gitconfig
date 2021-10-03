@@ -10,6 +10,7 @@
     editor = nvim
     pager = delta
     excludesfile = ~/.gitignore
+	fileMode = false
 [merge]
     tool = vimdiff
 [mergetool]

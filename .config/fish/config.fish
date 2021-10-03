@@ -23,7 +23,7 @@ abbr -a gmt "git mergetool"
 abbr -a gd "git diff"
 
 # Dotfiles
-alias config="/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME"
+alias config="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 abbr -a cpom "config push origin main"
 abbr -a ccm "config commit -m"
 abbr -a ca "config add"
@@ -172,4 +172,6 @@ end
 direnv hook fish | source
 
 # ASDF plugin
-source /usr/local/opt/asdf/asdf.fish
+if test -e /usr/local/opt/asdf/asdf.fish
+    source /usr/local/opt/asdf/asdf.fish
+end
