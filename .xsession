@@ -9,6 +9,9 @@ trayer --edge top --align right --SetDockType true --SetPartialStrut true \
 # Set default X cursor to pointer
 xsetroot -cursor_name left_ptr
 
+# Set background
+feh --bg-fill --no-fehbh ~/.wallpapers/pexels-paul-ijsendoorn-33041.jpg
+
 # Fire up screensaver
 xscreensaver -no-splash &
 
