@@ -1,6 +1,7 @@
 #!/bin/sh
 
 setxkbmap -option caps:swapescape
+xset r rate 400 50
 
 # Set up an icon tray
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \
