@@ -38,5 +38,3 @@
     navigate = true
 [interactive]
     diffFilter = delta --color-only
-[init]
-	templateDir = /home/matt/.git-template
