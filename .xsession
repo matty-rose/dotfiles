@@ -1,6 +1,6 @@
 #!/bin/sh
 
-setxkbmap -option caps:swapescape -option ctrl:swap_lalt_lctl
+setxkbmap -option caps:swapescape
 xset r rate 400 50
 
 # Set up an icon tray
