@@ -21,6 +21,7 @@ abbr -a grc "git rebase --continue"
 abbr -a grs "git rebase --skip"
 abbr -a gmt "git mergetool"
 abbr -a gd "git diff"
+abbr -a gcae "git commit --amend --no-edit"
 
 # Dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
