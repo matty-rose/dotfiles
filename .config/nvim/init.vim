@@ -165,9 +165,6 @@ let g:ale_python_flake8_options = "--max-line-length 88"
 " Ale golang
 let g:ale_go_golangci_lint_options = ""
 
-" Ale yaml
-let g:ale_javascript_prettier_options = "--tab-width 2 --single-quote false"
-
 " Better message display
 set cmdheight=2
 
@@ -179,6 +176,8 @@ set colorcolumn=88
 
 " Mute bell
 set vb t_vb=
+
+let g:python3_host_prog = "/Users/matt/.pyenv/shims/python"
 
 " =====================================
 "         Keyboard Shortcuts
@@ -298,6 +297,7 @@ au BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
 au FileType markdown let g:indentLine_setConceal=0
 au FileType tf setlocal shiftwidth=2 softtabstop=2
 au FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+au FileType yaml let g:ale_javascript_prettier_options = "--tab-width 2 --single-quote false"
 
 " ========================================
 "                   LUA
