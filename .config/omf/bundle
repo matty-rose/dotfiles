@@ -1,5 +1,3 @@
-package https://github.com/Ladicle/fish-kubectl-prompt
 package https://github.com/blackjid/plugin-kubectl
-package https://github.com/evanlucas/fish-kubectl-completions.git
 theme bobthefish
 theme default

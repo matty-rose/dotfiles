@@ -139,7 +139,9 @@ fish_add_path /usr/local/opt/openjdk@8/bin
 fish_add_path $HOME/.local/bin
 
 # GHC
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/matt/.ghcup/bin $PATH # ghcup-env
+# set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/matt/.ghcup/bin $PATH # ghcup-env
+fish_add_path $HOME/.cabal/bin
+fish_add_path $HOME/.ghcup/bin
 
 # Yarn
 fish_add_path $HOME/.yarn/bin
