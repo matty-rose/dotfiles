@@ -300,6 +300,7 @@ au FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+au Filetype go setlocal colorcolumn=120
 au FileType yaml let g:ale_javascript_prettier_options = "--tab-width 2 --single-quote false"
 
 " Highlight yanked text
