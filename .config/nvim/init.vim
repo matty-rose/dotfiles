@@ -179,6 +179,13 @@ set vb t_vb=
 
 let g:python3_host_prog = "/Users/matt/.pyenv/shims/python"
 
+" Completion
+" Better completion
+" menuone: popup even when there's only one match
+" noinsert: Do not insert text until a selection is made
+" noselect: Do not select, force user to select one from the menu
+set completeopt=menuone,noinsert,noselect
+
 " =====================================
 "         Keyboard Shortcuts
 " =====================================
