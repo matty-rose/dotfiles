@@ -49,7 +49,7 @@ Plug 'tpope/vim-unimpaired'
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'psliwka/vim-smoothie'
+Plug 'karb94/neoscroll.nvim'
 
 " Fuzzy Finding
 Plug 'airblade/vim-rooter'
@@ -138,7 +138,7 @@ let g:ale_linters = {
             \ 'go': ['golangci-lint'],
             \ 'dockerfile': ['hadolint'], 
             \ 'terraform': ['tflint'],
-            \ 'rust': ['rls'],
+            \ 'rust': ['rust_analyzer'],
             \ 'haskell': ['hlint']
             \ }
 let g:ale_fixers = {
@@ -298,6 +298,7 @@ au FileType markdown let g:indentLine_setConceal=0
 au FileType tf setlocal shiftwidth=2 softtabstop=2
 au FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au Filetype go setlocal colorcolumn=120
+au Filetype rust setlocal colorcolumn=100
 au FileType yaml let g:ale_javascript_prettier_options = "--tab-width 2 --single-quote false"
 
 " ========================================

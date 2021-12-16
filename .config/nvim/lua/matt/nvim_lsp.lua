@@ -42,6 +42,13 @@ for _, lsp in ipairs(servers) do
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
-    }
+    },
+    settings = {
+      ["rust-analyzer"] = {
+        cargo = { allFeatures = true },
+        completion = { postfix = { enable = false } },
+        checkOnSave = { command = "clippy" },
+      },
+    },
   }
 end
