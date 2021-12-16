@@ -179,6 +179,13 @@ set vb t_vb=
 
 let g:python3_host_prog = "/Users/matt/.pyenv/shims/python"
 
+" Completion
+" Better completion
+" menuone: popup even when there's only one match
+" noinsert: Do not insert text until a selection is made
+" noselect: Do not select, force user to select one from the menu
+set completeopt=menuone,noinsert,noselect
+
 " =====================================
 "         Keyboard Shortcuts
 " =====================================
@@ -297,9 +304,18 @@ au BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
 au FileType markdown let g:indentLine_setConceal=0
 au FileType tf setlocal shiftwidth=2 softtabstop=2
 au FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+au FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+au FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+au FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au Filetype go setlocal colorcolumn=120
 au Filetype rust setlocal colorcolumn=100
 au FileType yaml let g:ale_javascript_prettier_options = "--tab-width 2 --single-quote false"
+
+" Highlight yanked text
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+augroup END
 
 " ========================================
 "                   LUA
