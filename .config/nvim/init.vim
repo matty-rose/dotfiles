@@ -25,6 +25,7 @@ Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/playground'
 Plug 'hashivim/vim-terraform' " seems to be only way for autoindent
 Plug 'alx741/vim-stylishask'
+Plug 'simrat39/rust-tools.nvim'
 
 " Statusline
 Plug 'hoob3rt/lualine.nvim'
