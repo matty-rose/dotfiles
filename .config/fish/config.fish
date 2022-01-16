@@ -146,6 +146,9 @@ fish_add_path $HOME/.ghcup/bin
 # Yarn
 fish_add_path $HOME/.yarn/bin
 
+# Protobuf Compiler
+fish_add_path $HOME/.protobuf/bin
+
 #================================================
 #                     OTHER
 #================================================

@@ -165,6 +165,7 @@ let g:ale_python_flake8_options = "--max-line-length 88"
 
 " Ale golang
 let g:ale_go_golangci_lint_options = ""
+let g:ale_go_golangci_lint_package = 1
 
 " Better message display
 set cmdheight=2
