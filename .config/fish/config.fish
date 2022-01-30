@@ -26,7 +26,7 @@ abbr -a gcae "git commit --amend --no-edit"
 # Dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 abbr -a cpom "config push origin main"
-abbr -a ccm "config commit -s -m"
+abbr -a ccm "config commit -S -m"
 abbr -a ca "config add"
 abbr -a cst "config status"
 abbr -a cdiff "config diff"
