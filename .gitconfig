@@ -1,6 +1,7 @@
 [user]
     name = Matthew Rose
     email = matthew.rose@maxkelsen.com
+	signingkey = 9D28A344B3428369
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
@@ -38,3 +39,5 @@
     navigate = true
 [interactive]
     diffFilter = delta --color-only
+[commit]
+	gpgsign = true

@@ -14,7 +14,7 @@ abbr -a gst "git status"
 abbr -a gad "git add"
 abbr -a gch "git checkout"
 abbr -a gchb "git checkout -b"
-abbr -a gcm "git commit -s -m"
+abbr -a gcm "git commit -S -m"
 abbr -a gcp "git cherry-pick"
 abbr -a gpo "git pull origin"
 abbr -a grc "git rebase --continue"
@@ -59,6 +59,8 @@ end
 #================================================
 #             ENVIRONMENT VARIABLES
 #================================================
+
+set -gx GPG_TTY (tty)
 
 # Add manually installed neovim
 fish_add_path $HOME/.nvim/bin
