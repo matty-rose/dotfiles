@@ -188,6 +188,9 @@ let g:python3_host_prog = "/Users/matt/.pyenv/shims/python"
 " noselect: Do not select, force user to select one from the menu
 set completeopt=menuone,noinsert,noselect
 
+" No Makefile for root
+let g:rooter_patterns = ['!=theme', 'package.json', '.git', '.pre-commit-config.yaml', 'commitlint.config.js']
+
 " =====================================
 "         Keyboard Shortcuts
 " =====================================
