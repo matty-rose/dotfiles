@@ -11,7 +11,7 @@
     editor = nvim
     pager = delta
     excludesfile = ~/.gitignore
-	fileMode = false
+    fileMode = false
 [merge]
     tool = vimdiff
 [mergetool]
@@ -40,4 +40,4 @@
 [interactive]
     diffFilter = delta --color-only
 [commit]
-	gpgsign = true
+    gpgsign = true
