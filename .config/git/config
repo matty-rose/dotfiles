@@ -1,0 +1,43 @@
+[include]
+    path = config.personal
+[includeIf "gitdir:/Users/matt/Documents/**/.git"]
+    path = config.mk
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[core]
+    editor = nvim
+    pager = delta
+    excludesfile = ~/.gitignore
+	fileMode = false
+[merge]
+    tool = vimdiff
+[mergetool]
+    keepBackup = false
+[mergetool "vimdiff"]
+    cmd = nvim -d $LOCAL $MERGED $REMOTE -c 'wincmd l' -c 'wincmd J'
+[diff]
+    algorithm = histogram
+[alias]
+    bs = !git branch | grep -v '^*' | fzf-tmux -d 20% --reverse | xargs git checkout
+    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [a:%an,c:%cn]" --decorate --numstat
+    uncommit = reset --soft HEAD^
+    unstage = reset
+    graph = log --pretty=format:'%C(yellow)%h%C(reset) %C(blue)%an%C(reset) %C(cyan)%cr%C(reset) %s %C(green)%d%C(reset)' --graph --date-order
+    pushu = "! git push -u origin `git branch --show-current`"
+    sqmain = !git stash && git reset --soft $(git rev-parse main) && git commit -m \""$1"\" && :
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+[delta]
+    features = line-numbers
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+[interactive]
+    diffFilter = delta --color-only
+[commit]
+	gpgsign = true
