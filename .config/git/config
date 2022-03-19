@@ -1,6 +1,6 @@
 [include]
     path = config.personal
-[includeIf "gitdir:/Users/matt/Documents/**/.git"]
+[includeIf "gitdir:/Users/matt/"]
     path = config.mk
 [filter "lfs"]
     clean = git-lfs clean -- %f
