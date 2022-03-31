@@ -29,6 +29,8 @@
     graph = log --pretty=format:'%C(yellow)%h%C(reset) %C(blue)%an%C(reset) %C(cyan)%cr%C(reset) %s %C(green)%d%C(reset)' --graph --date-order
     pushu = "! git push -u origin `git branch --show-current`"
     sqmain = !git stash && git reset --soft $(git rev-parse main) && git commit -m \""$1"\" && :
+    repush = "! git commit --amend --no-edit && git push --force-with-lease"
+    fixup = !SKIP=commitlint git commit -m \""fixup $1"\" && :
 [url "git@github.com:"]
     insteadOf = https://github.com/
 [delta]
