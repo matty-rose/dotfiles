@@ -19,4 +19,7 @@ xscreensaver -no-splash &
 # Power Management
 xfce4-power-manager &
 
+# Rotate vertial screen
+xrandr --output DP-2 --rotate right
+
 exec xmonad
