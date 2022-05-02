@@ -1,7 +1,7 @@
 require("matt.autopairs")
 require("matt.treesitter")
 require("matt.nvim_lsp")
-require("matt.compe")
+require("matt.nvim-cmp")
 require("matt.telescope")
 require("matt.todo-comments")
 require("matt.lualine")

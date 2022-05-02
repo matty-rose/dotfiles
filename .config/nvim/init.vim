@@ -9,8 +9,14 @@ call plug#begin('~/.vim/plugged')
 
 " LSP + Autocomplete
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -265,13 +271,6 @@ nnoremap <silent> p p`]
 " Git merge conflict selects
 nnoremap gdh :diffget 1<CR>
 nnoremap gdl :diffget 3<CR>
-
-" Compe
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 " Copy to clipboard
 nnoremap <leader>y "*y
