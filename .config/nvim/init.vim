@@ -157,7 +157,8 @@ let g:ale_fixers = {
             \ 'yaml': ['prettier'], 
             \ 'terraform': ['terraform'],
             \ 'rust': ['rustfmt'],
-            \ 'haskell': ['hindent']
+            \ 'haskell': ['hindent'],
+            \ 'json': ['prettier']
             \ }
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
@@ -306,6 +307,7 @@ au BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
 
 " Filetype Specific options
 au FileType markdown let g:indentLine_setConceal=0
+au FileType json let g:indentLine_setConceal=0
 au FileType tf setlocal shiftwidth=2 softtabstop=2
 au FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
