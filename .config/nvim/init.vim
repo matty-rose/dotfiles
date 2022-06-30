@@ -32,6 +32,7 @@ Plug 'nvim-treesitter/playground'
 Plug 'hashivim/vim-terraform' " seems to be only way for autoindent
 Plug 'alx741/vim-stylishask'
 Plug 'simrat39/rust-tools.nvim'
+Plug 'weihanglo/polar.vim'
 
 " Statusline
 Plug 'hoob3rt/lualine.nvim'
@@ -47,6 +48,7 @@ Plug 'andymass/vim-matchup'
 Plug 'terryma/vim-expand-region'
 Plug 'Yggdroot/indentLine'
 Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
 
 " For Git blame
 Plug 'tpope/vim-fugitive'

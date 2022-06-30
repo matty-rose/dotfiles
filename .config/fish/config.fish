@@ -176,9 +176,6 @@ status --is-interactive; and source (rbenv init -|psub)
 status is-login; and pyenv init --path | source
 pyenv init - | source
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/matt/google-cloud-sdk/path.fish.inc' ]; . '/Users/matt/google-cloud-sdk/path.fish.inc'; end
-
 function fish_greeting
 	echo
 	echo -e (uname -n | awk '{print " \\\\e[1mUser: \\\\e[0;32m"$0"\\\\e[0m"}')
@@ -207,3 +204,6 @@ direnv hook fish | source
 if test -e /usr/local/opt/asdf/asdf.fish
     source /usr/local/opt/asdf/asdf.fish
 end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/matt/google-cloud-sdk/path.fish.inc' ]; . '/Users/matt/google-cloud-sdk/path.fish.inc'; end
