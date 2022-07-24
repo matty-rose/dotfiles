@@ -143,6 +143,8 @@ set undofile
 let g:ale_linters = {
             \ 'javascript': ['eslint'], 
             \ 'typescript': ['eslint'], 
+            \ 'javascriptreact': ['eslint'], 
+            \ 'typescriptreact': ['eslint'], 
             \ 'python': ['flake8', 'mypy'], 
             \ 'go': ['golangci-lint'],
             \ 'dockerfile': ['hadolint'], 
@@ -156,6 +158,8 @@ let g:ale_fixers = {
             \ 'hcl': ['terraform'],
             \ 'javascript': ['prettier'], 
             \ 'typescript': ['prettier'], 
+            \ 'javascriptreact': ['prettier'], 
+            \ 'typescriptreact': ['prettier'], 
             \ 'yaml': ['prettier'], 
             \ 'terraform': ['terraform'],
             \ 'rust': ['rustfmt'],
