@@ -8,6 +8,7 @@ abbr -a ef "nvim (fzf-tmux -d 30% --reverse)"
 abbr -a pa "source (poetry env info --path)/bin/activate.fish"
 abbr -a vimdiff "nvim -d"
 abbr -a poetry-bump "poetry show --no-dev -o -t | grep -v -e \"--\" | cut -d \" \" -f 1 | sed 's/\$/\@latest/g' | xargs poetry add"
+abbr -a nvim-startuptime 'rm /tmp/vim.log; nvim --startuptime /tmp/vim.log -c "quit" && cat /tmp/vim.log'
 
 # Git Abbreviations
 abbr -a gst "git status"
@@ -22,6 +23,7 @@ abbr -a grs "git rebase --skip"
 abbr -a gmt "git mergetool"
 abbr -a gd "git diff"
 abbr -a gcae "git commit --amend --no-edit"
+abbr -a gpf "git push -f"
 
 # Dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
