@@ -209,3 +209,6 @@ end
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/matt/google-cloud-sdk/path.fish.inc' ]; . '/Users/matt/google-cloud-sdk/path.fish.inc'; end
+
+# 1password plugins
+source ~/.config/op/plugins.sh

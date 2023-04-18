@@ -17,7 +17,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
