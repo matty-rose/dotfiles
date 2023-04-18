@@ -1,7 +1,11 @@
-[include]
-    path = config.personal
-[includeIf "gitdir:/Users/matt/"]
-    path = config.mk
+[user]
+    name = Matt Rose
+    email = matthewrose153@gmail.com
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqvML0BdEJd0xJ4kMd5N+wKa0jxir4LxmAL0dBB45XN
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    program = "/opt/1Password/op-ssh-sign"
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f

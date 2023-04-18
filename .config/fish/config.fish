@@ -211,4 +211,4 @@ end
 if [ -f '/Users/matt/google-cloud-sdk/path.fish.inc' ]; . '/Users/matt/google-cloud-sdk/path.fish.inc'; end
 
 # 1password plugins
-source ~/.config/op/plugins.sh
+# source ~/.config/op/plugins.sh
