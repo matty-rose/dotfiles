@@ -14,6 +14,7 @@ require'nvim-treesitter.configs'.setup {
     "javascript", 
     "json", 
     "jsonc", 
+    "jsonnet",
     "lua", 
     "make",
     "python", 

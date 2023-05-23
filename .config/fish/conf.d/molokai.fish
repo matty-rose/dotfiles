@@ -40,7 +40,7 @@ function bobthefish_colors -S -d 'Define a custom bobthefish color scheme'
   set -x color_vi_mode_visual           $base09 $colorfg --bold
 
   set -x color_vagrant                  $base0C $colorfg --bold
-  set -x color_k8s                      $base08 $base05 --bold
+  set -x color_k8s                      005faf $base05 --bold
   set -x color_aws_vault                $base0D $colorfg --bold
   set -x color_aws_vault_expired        $base0D $base08 --bold
   set -x color_username                 632fc4 $base05 --bold

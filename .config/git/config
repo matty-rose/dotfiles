@@ -1,11 +1,11 @@
-[user]
-    name = Matt Rose
-    email = matthewrose153@gmail.com
-    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqvML0BdEJd0xJ4kMd5N+wKa0jxir4LxmAL0dBB45XN
+[include]
+    path = config.personal
+[includeIf "gitdir:/Users/mattyrose/"]
+    path = config.canva
 [gpg]
     format = ssh
 [gpg "ssh"]
-    program = "/opt/1Password/op-ssh-sign"
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
@@ -24,6 +24,7 @@
     cmd = nvim -d $LOCAL $MERGED $REMOTE -c 'wincmd l' -c 'wincmd J'
 [diff]
     algorithm = histogram
+	external = difft
 [alias]
     bs = !git branch | grep -v '^*' | fzf-tmux -d 20% --reverse | xargs git checkout
     ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
@@ -49,3 +50,7 @@
     gpgsign = true
 [init]
 	defaultBranch = main
+[protocol]
+	version = 2
+[rebase]
+    updateRefs = true
