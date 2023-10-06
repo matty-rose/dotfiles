@@ -1,3 +1,5 @@
+package https://github.com/acomagu/fish-async-prompt
 package https://github.com/blackjid/plugin-kubectl
+package https://github.com/lilyball/nix-env.fish
 theme bobthefish
 theme default

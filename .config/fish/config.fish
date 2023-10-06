@@ -1,4 +1,18 @@
 #================================================
+#                   M1 Brew
+#================================================
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+#================================================
+#                   Nix
+#================================================
+
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+end
+
+#================================================
 #             ABBREVIATIONS/ALIASES
 #================================================
 
@@ -24,6 +38,9 @@ abbr -a gmt "git mergetool"
 abbr -a gd "git diff"
 abbr -a gcae "git commit --amend --no-edit"
 abbr -a gpf "git push -f"
+abbr -a gp "git pushu"
+abbr -a ghpr 'git pushu && gh pr create -B master -a "@me" --fill-first | rg "https.*github.*" | xargs gh pr view --web'
+abbr -a gfg "git fetch origin green:green"
 
 # Dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
@@ -39,11 +56,17 @@ if command -v exa > /dev/null
     abbr -a ls 'exa'
     abbr -a ll 'exa -l --git'
     abbr -a lll 'exa -la --git'
-    abbr -a la 'exa -la --git'
+    abbr -a la 'exa -la'
+    abbr -a lag 'exa -la --git'
 else
     abbr -a l 'ls'
     abbr -a ll 'ls -l'
     abbr -a lll 'ls -la'
+end
+
+# Exa
+if command -v zoxide > /dev/null
+    abbr -a cd 'z'
 end
 
 # Bat
@@ -76,7 +99,7 @@ set -g theme_display_virtualenv yes
 set -g theme_display_user yes
 set -g theme_display_host ssh
 set -g theme_display_git_master_branch yes
-set -g theme_display_k8s_context no
+set -g theme_display_k8s_context yes
 set -g theme_powerline_fonts yes
 set -g theme_nerd_fonts yes
 set -g fish_prompt_pwd_dir_length 0
@@ -156,6 +179,9 @@ fish_add_path $HOME/.yarn/bin
 # Protobuf Compiler
 fish_add_path $HOME/.protobuf/bin
 
+# JDTLS
+fish_add_path $HOME/.local/jdtls/bin
+
 # Set brew on Linux vars
 switch (uname)
     case Linux
@@ -167,6 +193,9 @@ switch (uname)
         set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH;
 end
 
+# Ripgrep config
+set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/.ripgreprc
+
 #================================================
 #                     OTHER
 #================================================
@@ -174,21 +203,13 @@ end
 # Ruby version management
 status --is-interactive; and source (rbenv init -|psub)
 
-# Pyenv
-status is-login; and pyenv init --path | source
-pyenv init - | source
-
-function fish_greeting
-	echo
-	echo -e (uname -n | awk '{print " \\\\e[1mUser: \\\\e[0;32m"$0"\\\\e[0m"}')
-	echo -ne (\
-	    df -l | \
-	    grep -E 'dev/disk1s[123456] ' |
-        awk '{ TOTAL = $2; USED += $3; AVAIL = $4; CAPACITY += $5 } END { print " \\\\e[1mDisk Usage:\\\\e[0m  "USED * 512 * 1e-9"Gi Available\n  "AVAIL * 512 * 1e-9"/"TOTAL * 512 * 1e-9"Gi Used\n  Capacity: "CAPACITY"%"}'
-	)
-	echo
-	echo
-end
+# Pyenv WARNING: this stuff seems to slow down things fish a lot
+# status is-login; and pyenv init --path | source
+# pyenv init - | source
+# if which pyenv-virtualenv-init > /dev/null
+#     eval "$(pyenv virtualenv-init -)"
+# end
+# status --is-interactive; and pyenv virtualenv-init - | sed 's/--on-event fish_prompt/--on-variable PWD/g' | source
 
 function d
     while test $PWD != "/"
@@ -211,4 +232,10 @@ end
 if [ -f '/Users/matt/google-cloud-sdk/path.fish.inc' ]; . '/Users/matt/google-cloud-sdk/path.fish.inc'; end
 
 # 1password plugins
-# source ~/.config/op/plugins.sh
+source ~/.config/op/plugins.sh
+
+# Zoxide
+zoxide init fish | source
+
+# Starship
+# starship init fish | source

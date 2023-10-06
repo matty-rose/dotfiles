@@ -17,7 +17,6 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
-" Plug 'github/copilot.vim'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -34,6 +33,7 @@ Plug 'hashivim/vim-terraform' " seems to be only way for autoindent
 Plug 'alx741/vim-stylishask'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'weihanglo/polar.vim'
+Plug 'google/vim-jsonnet'
 
 " Statusline
 Plug 'hoob3rt/lualine.nvim'
@@ -72,6 +72,12 @@ Plug 'folke/todo-comments.nvim'
 
 " Utils
 Plug 'nvim-lua/plenary.nvim'
+
+" Remote Editing
+Plug 'chipsenkbeil/distant.nvim', { 'branch': 'v0.2' }
+
+" Canva Formatting
+Plug 'Canva/dprint-vim-plugin'
 
 call plug#end()
 
@@ -175,7 +181,7 @@ let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 
 " Ale python
-let g:ale_python_flake8_options = "--max-line-length 88"
+let g:ale_python_flake8_options = "--max-line-length 100"
 
 " Ale golang
 let g:ale_go_golangci_lint_options = ""
@@ -188,12 +194,10 @@ set cmdheight=2
 set updatetime=300
 
 " Code column length
-set colorcolumn=88
+set colorcolumn=100
 
 " Mute bell
 set vb t_vb=
-
-let g:python3_host_prog = "/Users/matt/.pyenv/shims/python"
 
 " Completion
 " Better completion
@@ -204,6 +208,12 @@ set completeopt=menuone,noinsert,noselect
 
 " No Makefile for root
 let g:rooter_patterns = ['!=theme', 'package.json', '.git', '.pre-commit-config.yaml', 'commitlint.config.js']
+
+" Jsonnet Formatting
+let g:jsonnet_fmt_options = '--string-style d --comment-style s --in-place'
+
+" Dprint
+let g:dprint_format_on_save = 1
 
 " =====================================
 "         Keyboard Shortcuts
