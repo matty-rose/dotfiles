@@ -50,21 +50,21 @@ abbr -a ca "config add"
 abbr -a cst "config status"
 abbr -a cdiff "config diff"
 
-# Exa
-if command -v exa > /dev/null
-    abbr -a l 'exa'
-    abbr -a ls 'exa'
-    abbr -a ll 'exa -l --git'
-    abbr -a lll 'exa -la --git'
-    abbr -a la 'exa -la'
-    abbr -a lag 'exa -la --git'
+# Eza
+if command -v eza > /dev/null
+    abbr -a l 'eza'
+    abbr -a ls 'eza'
+    abbr -a ll 'eza -l --git'
+    abbr -a lll 'eza -la --git'
+    abbr -a la 'eza -la'
+    abbr -a lag 'eza -la --git'
 else
     abbr -a l 'ls'
     abbr -a ll 'ls -l'
     abbr -a lll 'ls -la'
 end
 
-# Exa
+# Zoxide
 if command -v zoxide > /dev/null
     abbr -a cd 'z'
 end
