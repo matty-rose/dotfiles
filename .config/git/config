@@ -24,7 +24,7 @@
     cmd = nvim -d $LOCAL $MERGED $REMOTE -c 'wincmd l' -c 'wincmd J'
 [diff]
     algorithm = histogram
-	external = difft
+    external = difft
 [alias]
     bs = !git branch | grep -v '^*' | fzf-tmux -d 20% --reverse | xargs git checkout
     ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
@@ -49,8 +49,8 @@
 [commit]
     gpgsign = true
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [protocol]
-	version = 2
+    version = 2
 [rebase]
     updateRefs = true
