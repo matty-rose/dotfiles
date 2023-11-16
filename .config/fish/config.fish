@@ -182,6 +182,9 @@ fish_add_path $HOME/.protobuf/bin
 # JDTLS
 fish_add_path $HOME/.local/jdtls/bin
 
+# Starlark LS
+fish_add_path $HOME/.starlark/bin
+
 # Set brew on Linux vars
 switch (uname)
     case Linux
