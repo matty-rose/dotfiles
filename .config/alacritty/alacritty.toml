@@ -25,7 +25,7 @@ foreground = "#c4c5b5"
 [font]
 size = 16.0
 
-[[font.key_bindings]]
+[[keyboard.bindings]]
 action = "CreateNewWindow"
 key = "N"
 mods = "Command"
