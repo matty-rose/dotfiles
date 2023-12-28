@@ -1,4 +1,5 @@
 local nvim_lsp = require('lspconfig')
+local rt = require("typescript-tools")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -36,7 +37,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "bashls", "cssmodules_ls", "dockerls", "html", "pyright", "gopls", "hls", "jsonnet_ls", "yamlls", "starlark_rust", "tsserver", "terraformls", "tflint" }
+local servers = { "bashls", "cssmodules_ls", "dockerls", "html", "pyright", "gopls", "hls", "jsonnet_ls", "yamlls", "starlark_rust", "terraformls", "tflint" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -46,3 +47,11 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities
   }
 end
+
+rt.setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    },
+    capabilities = capabilities
+}

@@ -15,3 +15,5 @@ require('distant').setup({
   -- 3. Provides keybinding to jump into a remote file's parent directory
   ['*'] = require('distant.settings').chip_default()
 })
+
+vim.lsp.set_log_level("off")

@@ -34,6 +34,8 @@ Plug 'alx741/vim-stylishask'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'weihanglo/polar.vim'
 Plug 'google/vim-jsonnet'
+Plug 'pmizio/typescript-tools.nvim'
+Plug 'mfussenegger/nvim-jdtls'
 
 " Statusline
 Plug 'hoob3rt/lualine.nvim'
