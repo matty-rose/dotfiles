@@ -37,7 +37,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "bashls", "cssmodules_ls", "dockerls", "html", "pyright", "gopls", "hls", "jsonnet_ls", "yamlls", "starlark_rust", "terraformls", "tflint" }
+local servers = { "bashls", "cssmodules_ls", "dockerls", "html", "pyright", "gopls", "hls", "jsonnet_ls", "yamlls", "terraformls", "tflint" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
