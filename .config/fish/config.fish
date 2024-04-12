@@ -243,3 +243,9 @@ zoxide init fish | source
 
 # Starship
 # starship init fish | source
+
+# Tide
+set --global tide_git_branch_truncation_length 50
+set --global tide_git_icon 
+set --global tide_left_prompt_items pwd git newline character
+set --global tide_right_prompt_items status cmd_duration context jobs python rustc kubectl terraform aws nix_shell time
