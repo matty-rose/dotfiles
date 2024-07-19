@@ -59,5 +59,13 @@ rt.setup {
 vim.g.rustaceanvim = {
     server = {
         on_attach = on_attach,
-    }
+        default_settings = {
+            ["rust-analyzer"] = {
+                cargo = { allFeatures = true },
+                completion = { postfix = { enable = false } },
+                checkOnSave = { command = "clippy" },
+            },
+        },
+    },
+
 }
