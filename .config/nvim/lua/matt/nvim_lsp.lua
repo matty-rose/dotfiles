@@ -55,3 +55,9 @@ rt.setup {
     },
     capabilities = capabilities
 }
+
+vim.g.rustaceanvim = {
+    server = {
+        on_attach = on_attach,
+    }
+}

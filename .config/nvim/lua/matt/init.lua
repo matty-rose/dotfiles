@@ -5,7 +5,6 @@ require("matt.nvim-cmp")
 require("matt.telescope")
 require("matt.todo-comments")
 require("matt.lualine")
-require("matt.rust-tools")
 require("neoscroll").setup()
 require('distant').setup({
   -- Applies Chip's personal settings to every machine you connect to

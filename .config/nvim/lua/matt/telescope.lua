@@ -14,7 +14,7 @@ require("telescope").load_extension("fzf")
 local M = {}
 M.find_files = function()
     require("telescope.builtin").find_files({
-        find_command = { 'rg', '--files', '--hidden', '-g', '!.git'},
+        find_command = { 'rg', '--files', '--hidden', '-g', '!.git', '-g', '!bazel-bin/**', '-g', '!bazel-canva/**', '-g', '!bazel-out/**', '-g', '!bazel-testlogs/**'},
     })
 end
 

@@ -42,6 +42,9 @@ abbr -a gpf "git push -f"
 abbr -a gp "git pushu"
 abbr -a ghpr 'git pushu && gh pr create -B master -a "@me" --fill-first | rg "https.*github.*" | xargs gh pr view --web'
 abbr -a gfg "git fetch origin green:green"
+abbr -a gsw "git branch | fzf --height=20% --reverse --info=inline | xargs git switch"
+abbr -a gbd "git branch -D"
+abbr -a gsc "git switch -c"
 
 # Dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
@@ -161,7 +164,7 @@ fish_add_path $HOME/.pyenv/bin
 fish_add_path $HOME/.poetry/bin
 
 # Default ripgrep command for fzf
-set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden -g "!.git"'
+set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden -g "!.git" -g "!bazel-bin/**" -g "!bazel-out/**" -g "!bazel-canva/**" -g "!bazel-testlogs/**"'
 
 # JDK 8
 fish_add_path /usr/local/opt/openjdk@8/bin
@@ -199,6 +202,8 @@ end
 
 # Ripgrep config
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/.ripgreprc
+
+fish_add_path /opt/homebrew/bin
 
 #================================================
 #                     OTHER
