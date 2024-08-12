@@ -58,6 +58,7 @@ rt.setup {
 
 vim.g.rustaceanvim = {
     server = {
+        autostart = true,
         on_attach = on_attach,
         default_settings = {
             ["rust-analyzer"] = {

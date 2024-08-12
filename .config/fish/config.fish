@@ -1,3 +1,4 @@
+
 #================================================
 #                   M1 Brew
 #================================================
@@ -204,6 +205,10 @@ end
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/.ripgreprc
 
 fish_add_path /opt/homebrew/bin
+
+fish_add_path $HOME/Library/Python/3.9/bin
+
+fish_add_path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 #================================================
 #                     OTHER
