@@ -321,7 +321,7 @@ if has("autocmd")
 endif
 
 " Help Filetype detection
-au BufRead *.md set filetype=markdown
+au BufRead *.md,*.mdx set filetype=markdown
 au BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
 
 " Filetype Specific options
