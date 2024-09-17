@@ -4,8 +4,6 @@
     path = config.canva
 [gpg]
     format = ssh
-[gpg "ssh"]
-    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
@@ -25,6 +23,8 @@
 [diff]
     algorithm = histogram
     external = difft
+[push]
+    autoSetupRemote = true
 [alias]
     bs = !git branch | grep -v '^*' | fzf-tmux -d 20% --reverse | xargs git checkout
     ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative

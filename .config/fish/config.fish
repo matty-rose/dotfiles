@@ -210,6 +210,9 @@ fish_add_path $HOME/Library/Python/3.9/bin
 
 fish_add_path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
+# Set editor
+set -gx EDITOR nvim
+
 #================================================
 #                     OTHER
 #================================================
@@ -241,9 +244,6 @@ direnv hook fish | source
 if test -e /usr/local/opt/asdf/asdf.fish
     source /usr/local/opt/asdf/asdf.fish
 end
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/matt/google-cloud-sdk/path.fish.inc' ]; . '/Users/matt/google-cloud-sdk/path.fish.inc'; end
 
 # 1password plugins
 source ~/.config/op/plugins.sh
