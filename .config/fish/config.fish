@@ -24,6 +24,7 @@ abbr -a pa "source (poetry env info --path)/bin/activate.fish"
 abbr -a vimdiff "nvim -d"
 abbr -a poetry-bump "poetry show --no-dev -o -t | grep -v -e \"--\" | cut -d \" \" -f 1 | sed 's/\$/\@latest/g' | xargs poetry add"
 abbr -a nvim-startuptime 'rm /tmp/vim.log; nvim --startuptime /tmp/vim.log -c "quit" && cat /tmp/vim.log'
+abbr -a k "kubectl"
 
 # Git Abbreviations
 abbr -a gst "git status"
@@ -43,6 +44,7 @@ abbr -a gpf "git push -f"
 abbr -a gp "git pushu"
 abbr -a ghpr 'git pushu && gh pr create -B master -a "@me" --fill-first | rg "https.*github.*" | xargs gh pr view --web'
 abbr -a gfg "git fetch origin green:green"
+abbr -a gfm "git fetch origin master:master"
 abbr -a gsw "git branch | fzf --height=20% --reverse --info=inline | xargs git switch"
 abbr -a gbd "git branch -D"
 abbr -a gsc "git switch -c"

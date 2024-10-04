@@ -2,8 +2,6 @@
     path = config.personal
 [includeIf "gitdir:/Users/mattyrose/"]
     path = config.canva
-[gpg]
-    format = ssh
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
