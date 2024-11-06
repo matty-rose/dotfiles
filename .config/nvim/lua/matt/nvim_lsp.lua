@@ -1,3 +1,26 @@
+local lsps = {
+    "ansiblels",
+    "basedpyright",
+    "bashls",
+    "cssmodules_ls",
+    "dockerls",
+    "gopls",
+    "html",
+    "jdtls",
+    "jsonnet_ls",
+    "lua_ls",
+    "ruff",
+    "rust_analyzer",
+    "starpls",
+    "terraformls",
+    "tflint",
+    "yamlls",
+}
+require("mason").setup()
+require("mason-lspconfig").setup {
+    ensure_installed = lsps,
+}
+
 local nvim_lsp = require('lspconfig')
 local rt = require("typescript-tools")
 
@@ -37,8 +60,8 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "bashls", "cssmodules_ls", "dockerls", "html", "pyright", "gopls", "hls", "jsonnet_ls", "yamlls", "terraformls", "tflint" }
-for _, lsp in ipairs(servers) do
+-- local servers = { "bashls", "cssmodules_ls", "dockerls", "html", "pyright", "gopls", "hls", "jsonnet_ls", "yamlls", "terraformls", "tflint" }
+for _, lsp in ipairs(lsps) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     flags = {

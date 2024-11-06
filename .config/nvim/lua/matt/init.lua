@@ -16,3 +16,5 @@ require('distant').setup({
 })
 
 vim.lsp.set_log_level("off")
+
+vim.highlight.priorities.semantic_tokens = 95

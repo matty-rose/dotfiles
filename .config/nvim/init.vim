@@ -8,6 +8,8 @@ let g:ale_disable_lsp = 1
 call plug#begin('~/.vim/plugged')
 
 " LSP + Autocomplete
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -35,7 +37,7 @@ Plug 'mrcjkb/rustaceanvim', { 'version': '^4', 'lazy': 'false' }
 Plug 'weihanglo/polar.vim'
 Plug 'google/vim-jsonnet'
 Plug 'pmizio/typescript-tools.nvim'
-Plug 'mfussenegger/nvim-jdtls'
+" Plug 'mfussenegger/nvim-jdtls'
 
 " Statusline
 Plug 'hoob3rt/lualine.nvim'
