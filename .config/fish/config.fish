@@ -251,6 +251,7 @@ end
 source ~/.config/op/plugins.sh
 
 # Zoxide
+set -gx _ZO_DATA_DIR $HOME/.zoxide
 zoxide init fish | source
 
 # Starship
