@@ -46,7 +46,7 @@
 [interactive]
     diffFilter = delta --color-only
 [commit]
-    gpgsign = true
+    gpgsign = false
 [init]
     defaultBranch = main
 [protocol]

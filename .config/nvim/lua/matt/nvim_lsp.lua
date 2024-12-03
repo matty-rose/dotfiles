@@ -91,5 +91,4 @@ vim.g.rustaceanvim = {
             },
         },
     },
-
 }
