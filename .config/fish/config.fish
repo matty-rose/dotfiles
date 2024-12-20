@@ -50,7 +50,7 @@ abbr -a gbd "git branch -D"
 abbr -a gsc "git switch -c"
 
 # Dotfiles
-alias config="git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+alias config="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 abbr -a cpom "config push origin main"
 abbr -a ccm "config commit -m"
 abbr -a ca "config add"

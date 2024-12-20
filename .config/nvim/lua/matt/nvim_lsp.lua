@@ -19,6 +19,9 @@ local lsps = {
 require("mason").setup()
 require("mason-lspconfig").setup {
     ensure_installed = lsps,
+    handlers = {
+        ["rust_analyzer"] = function() end,
+    }
 }
 
 local nvim_lsp = require('lspconfig')
@@ -56,19 +59,36 @@ local on_attach = function(client, bufnr)
 end
 
 -- Setup lspconfig (from nvim-cmp).
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
--- local servers = { "bashls", "cssmodules_ls", "dockerls", "html", "pyright", "gopls", "hls", "jsonnet_ls", "yamlls", "terraformls", "tflint" }
 for _, lsp in ipairs(lsps) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    },
-    capabilities = capabilities
-  }
+  if lsp == "jdtls" then
+    local root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1])
+    local project_name = vim.fn.fnamemodify(root_dir, ':p:h:t')
+
+    local config_dir = vim.fn.expand('~/.cache/jdtls/' .. project_name .. '/config_mac')
+    local data_dir = vim.fn.expand('~/.cache/jdtls/' .. project_name .. '/workspace')
+
+    nvim_lsp[lsp].setup {
+      cmd = { "jdtls", "-configuration", config_dir, "-data", data_dir },
+      on_attach = on_attach,
+      flags = {
+        debounce_text_changes = 150,
+      },
+      capabilities = capabilities
+    }
+  elseif lsp ~= "rust_analyzer" then
+    nvim_lsp[lsp].setup {
+      on_attach = on_attach,
+      flags = {
+        debounce_text_changes = 150,
+      },
+      capabilities = capabilities
+    }
+  end
 end
 
 rt.setup {
@@ -88,7 +108,19 @@ vim.g.rustaceanvim = {
                 cargo = { allFeatures = true },
                 completion = { postfix = { enable = false } },
                 checkOnSave = { command = "clippy" },
+                diagnostic = { refreshSupport = false }
             },
         },
     },
 }
+
+-- from https://github.com/neovim/neovim/issues/30985#issuecomment-2447329525
+for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+    local default_diagnostic_handler = vim.lsp.handlers[method]
+    vim.lsp.handlers[method] = function(err, result, context, config)
+        if err ~= nil and err.code == -32802 then
+            return
+        end
+        return default_diagnostic_handler(err, result, context, config)
+    end
+end

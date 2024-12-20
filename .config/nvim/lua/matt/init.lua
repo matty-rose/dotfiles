@@ -1,11 +1,13 @@
 require("matt.autopairs")
 require("matt.treesitter")
+require("matt.blink")
 require("matt.nvim_lsp")
-require("matt.nvim-cmp")
-require("matt.telescope")
 require("matt.todo-comments")
 require("matt.lualine")
+require("matt.fzf-lua")
 require("neoscroll").setup()
+require("debugprint").setup()
+require("fidget").setup()
 require('distant').setup({
   -- Applies Chip's personal settings to every machine you connect to
   --

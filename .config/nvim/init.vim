@@ -11,19 +11,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
+Plug 'Saghen/blink.cmp', { 'tag': 'v0.7.6', 'lazy': 'false' }
 
-" Telescope
+" fzf-lua
+Plug 'ibhagwan/fzf-lua', { 'branch' : 'main'}
 Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make', 'branch': 'main' }
 
 " Linting + Formatting
 Plug 'dense-analysis/ale'
@@ -33,11 +26,12 @@ Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/playground'
 Plug 'hashivim/vim-terraform' " seems to be only way for autoindent
 Plug 'alx741/vim-stylishask'
-Plug 'mrcjkb/rustaceanvim', { 'version': '^4', 'lazy': 'false' }
+Plug 'mrcjkb/rustaceanvim', { 'version': '^5', 'lazy': 'false' }
 Plug 'weihanglo/polar.vim'
 Plug 'google/vim-jsonnet'
 Plug 'pmizio/typescript-tools.nvim'
 Plug 'mfussenegger/nvim-jdtls'
+Plug 'andrewferrier/debugprint.nvim'
 
 " Statusline
 Plug 'hoob3rt/lualine.nvim'
@@ -70,6 +64,7 @@ Plug 'airblade/vim-rooter'
 
 " Fancy Startup
 Plug 'mhinz/vim-startify'
+Plug 'j-hui/fidget.nvim'
 
 " Todo
 Plug 'folke/todo-comments.nvim'
@@ -250,10 +245,7 @@ nnoremap <silent> g* g*zz
 nnoremap <leader><leader> <c-^>
 
 " Open
-map <C-p> :lua require'matt.telescope'.find_files()<CR>
-nmap <leader>; :Telescope buffers<CR>
-nnoremap <leader>fg :Telescope live_grep<CR>
-nnoremap <leader>fh :Telescope help_tags<CR>
+nnoremap <c-P> :FzfLua files<CR>
 
 " ; as : in normal mode so no shift needed
 nnoremap ; :
