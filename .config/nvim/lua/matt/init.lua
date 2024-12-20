@@ -1,4 +1,3 @@
-require("matt.autopairs")
 require("matt.treesitter")
 require("matt.blink")
 require("matt.nvim_lsp")
