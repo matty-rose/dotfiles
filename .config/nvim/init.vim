@@ -246,6 +246,7 @@ nnoremap <leader><leader> <c-^>
 
 " Open
 nnoremap <c-P> :FzfLua files<CR>
+nnoremap <leader>; :FzfLua buffers<CR>
 
 " ; as : in normal mode so no shift needed
 nnoremap ; :
