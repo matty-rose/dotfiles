@@ -78,6 +78,9 @@ Plug 'chipsenkbeil/distant.nvim', { 'branch': 'v0.2' }
 " Canva Formatting
 Plug 'Canva/dprint-vim-plugin'
 
+" Theme
+Plug 'ficcdaf/ashen.nvim'
+
 call plug#end()
 
 " ========================================
@@ -126,7 +129,7 @@ set autoread
 " Colour Scheme
 syntax enable
 set termguicolors
-colorscheme base16-monokai
+colorscheme ashen
 
 " Buffer status line
 let g:airline_theme='powerlineish'
