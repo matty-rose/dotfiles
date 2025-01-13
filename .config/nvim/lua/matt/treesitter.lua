@@ -11,6 +11,7 @@ require'nvim-treesitter.configs'.setup {
     "haskell",
     "hcl",
     "html",
+    "java",
     "javascript",
     "json",
     "jsonc",
