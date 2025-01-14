@@ -1,4 +1,5 @@
-theme = ashen
+theme = Monokai Remastered
+# theme = ashen
 # theme = GruvboxDarkHard
 # theme = Fahrenheit
 font-family = Hack Nerd Font Mono

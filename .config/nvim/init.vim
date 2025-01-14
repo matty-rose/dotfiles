@@ -12,7 +12,7 @@ Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'Saghen/blink.cmp', { 'tag': 'v0.7.6', 'lazy': 'false' }
+Plug 'Saghen/blink.cmp', { 'tag': 'v0.10.0', 'lazy': 'false' }
 
 " fzf-lua
 Plug 'ibhagwan/fzf-lua', { 'branch' : 'main'}

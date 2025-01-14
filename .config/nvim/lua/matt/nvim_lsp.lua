@@ -72,14 +72,14 @@ for _, lsp in ipairs(lsps) do
     local config_dir = vim.fn.expand('~/.cache/jdtls/' .. project_name .. '/config_mac')
     local data_dir = vim.fn.expand('~/.cache/jdtls/' .. project_name .. '/workspace')
 
-    nvim_lsp[lsp].setup {
-      cmd = { "jdtls", "-configuration", config_dir, "-data", data_dir },
-      on_attach = on_attach,
-      flags = {
-        debounce_text_changes = 150,
-      },
-      capabilities = capabilities
-    }
+    -- nvim_lsp[lsp].setup {
+    --   cmd = { "jdtls", "-configuration", config_dir, "-data", data_dir },
+    --   on_attach = on_attach,
+    --   flags = {
+    --     debounce_text_changes = 150,
+    --   },
+    --   capabilities = capabilities
+    -- }
   elseif lsp ~= "rust_analyzer" then
     nvim_lsp[lsp].setup {
       on_attach = on_attach,
