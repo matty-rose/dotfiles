@@ -6,7 +6,6 @@ local lsps = {
     "dockerls",
     "gopls",
     "html",
-    "jdtls",
     "jsonnet_ls",
     "lua_ls",
     "ruff",
@@ -29,7 +28,7 @@ local rt = require("typescript-tools")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+on_attach = function(client, bufnr)
   require'lsp_signature'.on_attach()
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -65,22 +64,7 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 for _, lsp in ipairs(lsps) do
-  if lsp == "jdtls" then
-    local root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1])
-    local project_name = vim.fn.fnamemodify(root_dir, ':p:h:t')
-
-    local config_dir = vim.fn.expand('~/.cache/jdtls/' .. project_name .. '/config_mac')
-    local data_dir = vim.fn.expand('~/.cache/jdtls/' .. project_name .. '/workspace')
-
-    -- nvim_lsp[lsp].setup {
-    --   cmd = { "jdtls", "-configuration", config_dir, "-data", data_dir },
-    --   on_attach = on_attach,
-    --   flags = {
-    --     debounce_text_changes = 150,
-    --   },
-    --   capabilities = capabilities
-    -- }
-  elseif lsp ~= "rust_analyzer" then
+  if lsp ~= "rust_analyzer" then
     nvim_lsp[lsp].setup {
       on_attach = on_attach,
       flags = {
@@ -124,3 +108,7 @@ for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) d
         return default_diagnostic_handler(err, result, context, config)
     end
 end
+
+return {
+    on_attach = on_attach
+}

@@ -16,6 +16,7 @@ if vim.fn.has "mac" == 1 then
   os_config = "mac"
 end
 
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
@@ -46,6 +47,8 @@ local config = {
     "-data",
     workspace_dir,
   },
+  on_attach = require("matt.nvim_lsp").on_attach,
+  capabilities = capabilities,
   root_dir = require("jdtls.setup").find_root { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" },
   settings = {
     java = {
@@ -62,7 +65,7 @@ local config = {
         },
       },
       autobuild = {
-        enabled = false,
+        enabled = true,
       },
       maven = {
         downloadSources = true,
