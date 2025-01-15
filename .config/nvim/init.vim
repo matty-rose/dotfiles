@@ -42,7 +42,7 @@ Plug 'chriskempson/base16-vim'
 
 " Editing
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
 Plug 'terryma/vim-expand-region'
 Plug 'Yggdroot/indentLine'

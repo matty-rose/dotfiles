@@ -27,7 +27,12 @@ local config = {
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
     "-Dlog.protocol=true",
     "-Dlog.level=ALL",
-    "-Xms1g",
+    "-Xms4g",
+    "-Xmx16g",
+    "-XX:+UseParallelGC",
+    "-XX:GCTimeRatio=4",
+    "-XX:AdaptiveSizePolicyWeight=90",
+    "-Dsun.zip.disableMemoryMapping=true",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",
     "java.base/java.util=ALL-UNNAMED",
@@ -44,14 +49,24 @@ local config = {
   root_dir = require("jdtls.setup").find_root { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" },
   settings = {
     java = {
-      eclipse = {
-        downloadSources = true,
-      },
+      -- eclipse = {
+      --   downloadSources = true,
+      -- },
       configuration = {
         updateBuildConfiguration = "interactive",
+        runtimes = {
+          {
+            name = "JavaSE-17",
+            path = vim.fn.expand('/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home'),
+          },
+        },
+      },
+      autobuild = {
+        enabled = false,
       },
       maven = {
         downloadSources = true,
+        updateSnapshots = true,
       },
       referencesCodeLens = {
         enabled = true,
@@ -67,11 +82,29 @@ local config = {
       format = {
         enabled = false,
       },
+      import = {
+        exclusions = {
+          "**",
+          "**/bazel-bin/**",
+          "**/bazel-links/**",
+          "**/bazel-out/**",
+          "**/bazel-testlogs/**",
+          "**/node_modules/**",
+          "**/node_modules/**",
+        },
+      },
+      project = {
+        resourceFilters = {"node_modules", ".metadata", "META-INF/maven", "bazel-bin", "bazel-links", "bazel-out", "bazel-testlogs"},
+      },
+      maxConcurrentBuilds = 5,
     },
     signatureHelp = { enabled = true },
     extendedClientCapabilities = extendedClientCapabilities,
   },
   init_options = {
+  },
+  flags = {
+    allow_incremental_sync = true,
   },
 }
 
