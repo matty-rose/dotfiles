@@ -55,6 +55,8 @@ Plug 'tpope/vim-fugitive'
 " Git [n ]n to move between merge conflict markers
 Plug 'tpope/vim-unimpaired'
 
+Plug 'sindrets/diffview.nvim'
+
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'karb94/neoscroll.nvim'
@@ -71,9 +73,6 @@ Plug 'folke/todo-comments.nvim'
 
 " Utils
 Plug 'nvim-lua/plenary.nvim'
-
-" Remote Editing
-Plug 'chipsenkbeil/distant.nvim', { 'branch': 'v0.2' }
 
 " Canva Formatting
 Plug 'Canva/dprint-vim-plugin'
@@ -150,26 +149,26 @@ set undofile
 
 " Ale
 let g:ale_linters = {
-            \ 'javascript': ['eslint'], 
-            \ 'typescript': ['eslint'], 
-            \ 'javascriptreact': ['eslint'], 
-            \ 'typescriptreact': ['eslint'], 
-            \ 'python': ['flake8', 'mypy'], 
+            \ 'javascript': ['eslint'],
+            \ 'typescript': ['eslint'],
+            \ 'javascriptreact': ['eslint'],
+            \ 'typescriptreact': ['eslint'],
+            \ 'python': ['flake8', 'mypy'],
             \ 'go': ['golangci-lint'],
-            \ 'dockerfile': ['hadolint'], 
+            \ 'dockerfile': ['hadolint'],
             \ 'terraform': ['tflint'],
             \ 'rust': ['rust_analyzer'],
             \ 'haskell': ['hlint']
             \ }
 let g:ale_fixers = {
-            \ 'python': ['black', 'isort'], 
-            \ 'go': ['goimports'], 
+            \ 'python': ['black', 'isort'],
+            \ 'go': ['goimports'],
             \ 'hcl': ['terraform'],
-            \ 'javascript': ['prettier'], 
-            \ 'typescript': ['prettier'], 
-            \ 'javascriptreact': ['prettier'], 
-            \ 'typescriptreact': ['prettier'], 
-            \ 'yaml': ['prettier'], 
+            \ 'javascript': ['prettier'],
+            \ 'typescript': ['prettier'],
+            \ 'javascriptreact': ['prettier'],
+            \ 'typescriptreact': ['prettier'],
+            \ 'yaml': ['prettier'],
             \ 'terraform': ['terraform'],
             \ 'rust': ['rustfmt'],
             \ 'haskell': ['hindent'],

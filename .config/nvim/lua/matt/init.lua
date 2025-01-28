@@ -7,15 +7,16 @@ require("matt.fzf-lua")
 require("neoscroll").setup()
 require("debugprint").setup()
 require("fidget").setup()
-require('distant').setup({
-  -- Applies Chip's personal settings to every machine you connect to
-  --
-  -- 1. Ensures that distant servers terminate with no connections
-  -- 2. Provides navigation bindings for remote directories
-  -- 3. Provides keybinding to jump into a remote file's parent directory
-  ['*'] = require('distant.settings').chip_default()
-})
 
 vim.lsp.set_log_level("off")
 
 vim.highlight.priorities.semantic_tokens = 95
+
+-- removes trailing whitespace on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+    callback = function()
+        local save_cursor = vim.fn.getpos(".")
+        vim.cmd([[%s/\s\+$//e]])
+        vim.fn.setpos(".", save_cursor)
+    end,
+})
