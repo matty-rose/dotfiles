@@ -21,8 +21,24 @@
 [diff]
     algorithm = histogram
     external = difft
+	colorMoved = plain
+	renames = true
 [push]
-    autoSetupRemote = true
+	autoSetupRemote = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[fetch]
+	prune = true
+	pruneTags = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[pull]
+	rebase = true
 [alias]
     bs = !git branch | grep -v '^*' | fzf-tmux -d 20% --reverse | xargs git checkout
     ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
@@ -35,8 +51,6 @@
     repush = "! git commit --amend --no-edit && git push --force-with-lease"
     fixup = !SKIP=commitlint git commit -m \""fixup $1"\" && :
     clone-branch = "!f() { git fetch origin $1:$1; git checkout $1; }; f"
-; [url "git@github.com:"]
-;     insteadOf = https://github.com/
 [delta]
     features = line-numbers
     plus-style = "syntax #012800"

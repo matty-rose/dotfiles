@@ -248,7 +248,7 @@ if test -e /usr/local/opt/asdf/asdf.fish
 end
 
 # 1password plugins
-source ~/.config/op/plugins.sh
+#source ~/.config/op/plugins.sh
 
 # Zoxide
 set -gx _ZO_DATA_DIR $HOME/.zoxide
