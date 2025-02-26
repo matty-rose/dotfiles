@@ -41,8 +41,8 @@ abbr -a gd "git diff"
 abbr -a gds "git diff --staged"
 abbr -a gcae "git commit --amend --no-edit"
 abbr -a gpf "git push -f"
-abbr -a gp "git pushu"
-abbr -a ghpr 'git pushu && gh pr create -B master -a "@me" --fill-first | rg "https.*github.*" | xargs gh pr view --web'
+abbr -a gp "git push"
+abbr -a ghpr 'git push && gh pr create -B master -a "@me" --fill-first | rg "https.*github.*" | xargs gh pr view --web'
 abbr -a gfg "git fetch origin green:green"
 abbr -a gfm "git fetch origin master:master"
 abbr -a gsw "git branch | fzf --height=20% --reverse --info=inline | xargs git switch"
