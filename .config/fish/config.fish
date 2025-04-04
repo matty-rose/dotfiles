@@ -48,6 +48,8 @@ abbr -a gfm "git fetch origin master:master"
 abbr -a gsw "git branch | fzf --height=20% --reverse --info=inline | xargs git switch"
 abbr -a gbd "git branch -D"
 abbr -a gsc "git switch -c"
+abbr -a grm "git rebase master"
+abbr -a gswm "git switch master"
 
 # Dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
@@ -128,7 +130,7 @@ fish_add_path $HOME/go/bin
 fish_add_path -a /usr/local/go/bin
 
 # Set kubeeditor
-set -gx KUBE_EDITOR $HOME/.nvim/bin/nvim
+set -gx KUBE_EDITOR $(which nvim)
 
 # Istioctl
 fish_add_path $HOME/.istioctl/bin
