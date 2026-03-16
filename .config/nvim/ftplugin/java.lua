@@ -5,20 +5,29 @@ end
 
 local home = os.getenv("HOME")
 local workspace_path = home .. "/.local/share/jdtls-workspace"
+local root_markers = { ".git", "gradlew", "mvnw", "pom.xml", "build.gradle" }
+local root_dir = require("jdtls.setup").find_root(root_markers)
+if not root_dir then
+  return
+end
 
-local root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1])
-local project_name = vim.fn.fnamemodify(root_dir, ':p:h:t')
-
-local workspace_dir = workspace_path .. project_name
+local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
+local workspace_dir = workspace_path .. "/" .. project_name
 
 local os_config = "linux"
 if vim.fn.has "mac" == 1 then
   os_config = "mac"
 end
 
-local capabilities = require('blink.cmp').get_lsp_capabilities()
+local lsp = require("config.lsp")
+local capabilities = lsp.capabilities()
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+local mason_root = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+local launcher = vim.fn.glob(mason_root .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+if launcher == "" then
+  return
+end
 
 local config = {
   cmd = {
@@ -39,22 +48,19 @@ local config = {
     "java.base/java.util=ALL-UNNAMED",
     "--add-opens",
     "java.base/java.lang=ALL-UNNAMED",
-    "-javaagent:" .. home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
+    "-javaagent:" .. mason_root .. "/lombok.jar",
     "-jar",
-    vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
+    launcher,
     "-configuration",
-    home .. "/.local/share/nvim/mason/packages/jdtls/config_" .. os_config,
+    mason_root .. "/config_" .. os_config,
     "-data",
     workspace_dir,
   },
-  on_attach = require("matt.nvim_lsp").on_attach,
+  on_attach = lsp.on_attach,
   capabilities = capabilities,
-  root_dir = require("jdtls.setup").find_root { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" },
+  root_dir = root_dir,
   settings = {
     java = {
-      -- eclipse = {
-      --   downloadSources = true,
-      -- },
       configuration = {
         updateBuildConfiguration = "interactive",
         runtimes = {
@@ -93,22 +99,19 @@ local config = {
           "**/bazel-out/**",
           "**/bazel-testlogs/**",
           "**/node_modules/**",
-          "**/node_modules/**",
         },
       },
       project = {
-        resourceFilters = {"node_modules", ".metadata", "META-INF/maven", "bazel-bin", "bazel-links", "bazel-out", "bazel-testlogs"},
+        resourceFilters = { "node_modules", ".metadata", "META-INF/maven", "bazel-bin", "bazel-links", "bazel-out", "bazel-testlogs" },
       },
       maxConcurrentBuilds = 5,
     },
     signatureHelp = { enabled = true },
     extendedClientCapabilities = extendedClientCapabilities,
   },
-  init_options = {
-  },
   flags = {
     allow_incremental_sync = true,
   },
 }
 
-require('jdtls').start_or_attach(config)
+require("jdtls").start_or_attach(config)

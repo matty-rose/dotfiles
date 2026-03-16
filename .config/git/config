@@ -14,10 +14,14 @@
     fileMode = false
 [merge]
     tool = vimdiff
+    conflictStyle = "diff3"
 [mergetool]
     keepBackup = false
 [mergetool "vimdiff"]
     cmd = nvim -d $LOCAL $MERGED $REMOTE -c 'wincmd l' -c 'wincmd J'
+[merge "mergiraf"]
+    name = mergiraf
+    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
 [diff]
     algorithm = histogram
     external = difft

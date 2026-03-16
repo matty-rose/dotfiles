@@ -49,7 +49,7 @@ abbr -a gsw "git branch | fzf --height=20% --reverse --info=inline | xargs git s
 abbr -a gbd "git branch -D"
 abbr -a gsc "git switch -c"
 abbr -a grm "git rebase master"
-abbr -a gswm "git switch master"
+abbr -a gswm "git switch master && git pull origin master"
 
 # Dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
@@ -217,6 +217,8 @@ fish_add_path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 # Set editor
 set -gx EDITOR nvim
 
+fish_add_path $HOME/.local/bin/gt
+
 #================================================
 #                     OTHER
 #================================================
@@ -263,4 +265,7 @@ zoxide init fish | source
 set --global tide_git_branch_truncation_length 50
 set --global tide_git_icon 
 set --global tide_left_prompt_items pwd git newline character
-set --global tide_right_prompt_items status cmd_duration context jobs python rustc kubectl terraform aws nix_shell time
+set --global tide_right_prompt_items status cmd_duration context jobs python rustc terraform aws nix_shell time
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mattyrose/google-cloud-sdk/path.fish.inc' ]; . '/Users/mattyrose/google-cloud-sdk/path.fish.inc'; end
